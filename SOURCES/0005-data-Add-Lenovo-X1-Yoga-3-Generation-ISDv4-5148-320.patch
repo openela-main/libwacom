@@ -1,0 +1,40 @@
+From 1fa7c62f266e1c7ff15470422561490169987493 Mon Sep 17 00:00:00 2001
+From: Leon Fattakhov <coolcom200@users.noreply.github.com>
+Date: Wed, 6 Jan 2021 21:53:59 -0500
+Subject: [PATCH libwacom 5/5] data: Add Lenovo X1 Yoga 3 Generation (ISDv4
+ 5148) (#320)
+
+(cherry picked from commit 0234d3793264f551b52ae636be5b599fcfca3309)
+---
+ data/isdv4-5148.tablet | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+ create mode 100644 data/isdv4-5148.tablet
+
+diff --git a/data/isdv4-5148.tablet b/data/isdv4-5148.tablet
+new file mode 100644
+index 0000000..8639a30
+--- /dev/null
++++ b/data/isdv4-5148.tablet
+@@ -0,0 +1,19 @@
++# this is for the Wacom pen + touchscreen as found in the Lenovo ThinkPad X1 Yoga (3rd-gen)
++#
++# sysinfo.4xQ82uOLCD
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/117
++
++[Device]
++Name=Wacom ISDv4 5148
++ModelName=
++DeviceMatch=usb:056a:5148
++Class=ISDV4
++Width=12
++Height=7
++IntegratedIn=Display;System
++Styli=@isdv4-aes;
++
++[Features]
++Stylus=true
++Touch=true
++Buttons=0
+-- 
+2.29.2
+

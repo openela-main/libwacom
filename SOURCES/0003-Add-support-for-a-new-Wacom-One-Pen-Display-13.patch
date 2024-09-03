@@ -1,0 +1,31 @@
+From a0a0f786c845313d9eb3cb2ee08a5d058cac80c1 Mon Sep 17 00:00:00 2001
+From: Ping Cheng <ping.cheng@wacom.com>
+Date: Sun, 13 Feb 2022 20:09:34 -0800
+Subject: [PATCH libwacom 03/13] Add support for a new "Wacom One Pen Display
+ 13"
+
+Except the PID change, there was only a minor update in the tablet's
+cordinate for this model.
+
+Signed-off-by: Ping Cheng <ping.cheng@wacom.com>
+(cherry picked from commit f057ded6b820d18fc29b90b7909ae9a2b988916b)
+---
+ data/wacom-one.tablet | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git ./data/wacom-one.tablet ../data/wacom-one.tablet
+index be55fecb7097..3bd2b18c7e94 100644
+--- ./data/wacom-one.tablet
++++ ../data/wacom-one.tablet
+@@ -6,7 +6,7 @@
+ Name=Wacom One Pen Display 13
+ ModelName=DTC133
+ Class=PenDisplay
+-DeviceMatch=usb:056a:03a6
++DeviceMatch=usb:056a:03a6;usb:056a:03bd
+ Width=11
+ Height=6
+ # No pad buttons, so no layout
+-- 
+2.45.2
+

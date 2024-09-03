@@ -1,0 +1,31 @@
+From 8d5c4bd7dd47f3aa2a71f414fc6b13c9c7de395a Mon Sep 17 00:00:00 2001
+From: Tatsunosuke Tobita <tatsunosuke.tobita@wacom.com>
+Date: Wed, 17 Jul 2024 14:11:57 +0900
+Subject: [PATCH libwacom 09/13] wacom-movink.tablet: add more groups
+
+Since Movink supports mobilestudio and propengen2 groups, they
+are added by this change.
+
+Signed-off-by: Tatsunosuke Tobita <tatsunosuke.tobita@wacom.com>
+Signed-off-by: Tatsunosuke Tobita <tatsunosuke.wacom@gmail.com
+(cherry picked from commit d2e4b2b6c40d661b7c2f3dc241e17bc76df0db0f)
+---
+ data/movink.tablet | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git ./data/movink.tablet ../data/movink.tablet
+index 6cc4155d341b..10c10711745e 100644
+--- ./data/movink.tablet
++++ ../data/movink.tablet
+@@ -35,7 +35,7 @@ DeviceMatch=usb:056a:03f0
+ Class=Cintiq
+ Width=11
+ Height=8
+-Styli=@udpen;
++Styli=@udpen;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ Layout=movink.svg
+ 
+-- 
+2.45.2
+

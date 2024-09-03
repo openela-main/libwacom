@@ -1,0 +1,31 @@
+From 845d1c1e447a80977217d7a289a64c83fcca0889 Mon Sep 17 00:00:00 2001
+From: Peter Hutterer <peter.hutterer@who-t.net>
+Date: Wed, 22 Nov 2023 09:08:30 +1000
+Subject: [PATCH libwacom 10/13] libwacom: only memcmp the led data if we have
+ leds
+
+../libwacom/libwacom.c:498:13: runtime error: null pointer passed as argument 1, which is declared to never be null
+/usr/include/string.h:65:33: note: nonnull attribute specified here
+
+(cherry picked from commit 8468b88c7c55af65585ce7d7b21ab82544af7bfd)
+---
+ libwacom/libwacom.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git ./libwacom/libwacom.c ../libwacom/libwacom.c
+index 935344c49752..37d03bd2642f 100644
+--- ./libwacom/libwacom.c
++++ ../libwacom/libwacom.c
+@@ -472,7 +472,8 @@ libwacom_compare(const WacomDevice *a, const WacomDevice *b, WacomCompareFlags f
+ 	if (a->status_leds->len != b->status_leds->len)
+ 		return 1;
+ 
+-	if (memcmp(a->status_leds->data, b->status_leds->data,
++	if (a->status_leds->len > 0 &&
++	    memcmp(a->status_leds->data, b->status_leds->data,
+ 		   sizeof(WacomStatusLEDs) * a->status_leds->len) != 0)
+ 		return 1;
+ 
+-- 
+2.45.2
+

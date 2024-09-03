@@ -1,0 +1,51 @@
+From 297311bf9e3ecad1790a9f867ff587e330807ca6 Mon Sep 17 00:00:00 2001
+From: Tatsunosuke Tobita <tatsunosuke.tobita@wacom.com>
+Date: Wed, 31 Jul 2024 17:21:22 +0900
+Subject: [PATCH libwacom 11/13] wacom-movink-13.tablet: correct the product
+ name
+
+"Wacom Movink" used in the previous tablet file was corrected
+to "Wacom Movink 13" which is more appropriate for the product
+
+Signed-off-by: Tatsunosuke Tobita <tatsunosuke.tobita@wacom.com>
+(cherry picked from commit ac9e57d399c38c1e34a077ad01ed63b28491811a)
+---
+ data/{movink.tablet => movink-13.tablet} | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+ rename data/{movink.tablet => movink-13.tablet} (94%)
+
+diff --git ./data/movink.tablet ../data/movink-13.tablet
+similarity index 94%
+rename from data/movink.tablet
+rename to data/movink-13.tablet
+index 10c10711745e..99153cab87a3 100644
+--- ./data/movink.tablet
++++ ../data/movink-13.tablet
+@@ -1,4 +1,5 @@
+-# Wacom Movink DTH135K0C
++# Wacom Movink 13
++# Model Name: DTH135K0C
+ # Sensor Type: EMR
+ # Features: Touch (Integrated), Tilt
+ #
+@@ -29,7 +30,7 @@
+ # sysinfo.4XIn8KkXzp
+ # https://github.com/linuxwacom/wacom-hid-descriptors/issues/376#issue-2270545906
+ [Device]
+-Name=Wacom Movink
++Name=Wacom Movink 13
+ ModelName=DTH-135K0C
+ DeviceMatch=usb:056a:03f0
+ Class=Cintiq
+@@ -37,7 +38,7 @@ Width=11
+ Height=8
+ Styli=@udpen;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+-Layout=movink.svg
++Layout=movink-13.svg
+ 
+ [Features]
+ Stylus=true
+-- 
+2.45.2
+

@@ -1,0 +1,77 @@
+From a43858e4de82bde845a95833d69f643c122c70fb Mon Sep 17 00:00:00 2001
+From: Joshua Dickens <Joshua@Joshua-Dickens.com>
+Date: Thu, 10 Aug 2023 10:20:29 -0700
+Subject: [PATCH libwacom 04/13] data: add Wacom One 12 & Wacom One 13
+
+Adding tablet files for two new Wacom products.
+
+(cherry picked from commit 3563898cd2e87f577e306ba6fc5d22923e1a6fd0)
+---
+ data/wacom-one-12.tablet | 23 +++++++++++++++++++++++
+ data/wacom-one-13.tablet | 23 +++++++++++++++++++++++
+ 2 files changed, 46 insertions(+)
+ create mode 100644 data/wacom-one-12.tablet
+ create mode 100644 data/wacom-one-13.tablet
+
+diff --git ./data/wacom-one-12.tablet ../data/wacom-one-12.tablet
+new file mode 100644
+index 000000000000..5662fd69716c
+--- /dev/null
++++ ../data/wacom-one-12.tablet
+@@ -0,0 +1,23 @@
++# Wacom
++# Wacom One Pen Display 12
++# DTC121
++#
++# sysinfo.2gKHOkzsUw
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/315
++
++[Device]
++Name=Wacom One Pen Display 12
++ModelName=DTC121
++Class=PenDisplay
++DeviceMatch=usb:056a:03ce
++Width=11
++Height=6
++# No pad buttons, so no layout
++IntegratedIn=Display
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=false
++Ring=false
++Buttons=0
+\ No newline at end of file
+diff --git ./data/wacom-one-13.tablet ../data/wacom-one-13.tablet
+new file mode 100644
+index 000000000000..8cb4b6297600
+--- /dev/null
++++ ../data/wacom-one-13.tablet
+@@ -0,0 +1,23 @@
++# Wacom
++# Wacom One Pen Display 13
++# DTH134
++#
++# sysinfo.b0YFbQqufS
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/316
++
++[Device]
++Name=Wacom One Pen Display 13
++ModelName=DTH134
++Class=PenDisplay
++DeviceMatch=usb:056a:03cb
++Width=13
++Height=7
++# No pad buttons, so no layout
++IntegratedIn=Display
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=true
++Ring=false
++Buttons=0
+-- 
+2.45.2
+

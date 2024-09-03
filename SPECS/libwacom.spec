@@ -1,6 +1,6 @@
 Name:           libwacom
 Version:        1.12.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Tablet Information Client Library
 Requires:       %{name}-data
 
@@ -8,6 +8,19 @@ License:        MIT
 URL:            https://github.com/linuxwacom/libwacom
 
 Source0:        https://github.com/linuxwacom/libwacom/releases/download/%{name}-%{version}/%{name}-%{version}.tar.bz2
+
+Patch01:        0001-data-remove-unknown-BuiltIn-key-from-the-DTU1931.patch
+Patch02:        0002-Add-description-for-elan-2a70-466.patch
+Patch03:        0003-Add-support-for-a-new-Wacom-One-Pen-Display-13.patch
+Patch04:        0004-data-add-Wacom-One-12-Wacom-One-13.patch
+Patch05:        0005-data-Add-Wacom-One-pen-tablet.patch
+Patch06:        0006-data-add-Wacom-Cintiq-Pro-22-17.patch
+Patch07:        0007-Add-support-for-Wacom-Movink-673.patch
+Patch08:        0008-Add-support-for-a-new-Intuos-Pro-Small.patch
+Patch09:        0009-wacom-movink.tablet-add-more-groups.patch
+Patch10:        0010-libwacom-only-memcmp-the-led-data-if-we-have-leds.patch
+Patch11:        0011-wacom-movink-13.tablet-correct-the-product-name.patch
+Patch12:        0012-wacom-movink-13.svg-correct-the-name-of-the-product.patch
 
 BuildRequires:  meson gcc
 BuildRequires:  glib2-devel libgudev1-devel
@@ -88,6 +101,9 @@ rm ${RPM_BUILD_ROOT}/%{_bindir}/libwacom-show-stylus
 %{_datadir}/libwacom/layouts/*.svg
 
 %changelog
+* Mon Aug 05 2024 Peter Hutterer <peter.hutterer@redhat.com> - 1.12.1-3
+- Add a set of newer Wacom tablets description files
+
 * Mon Jan 31 2022 Peter Hutterer <peter.hutterer@redhat.com> - 1.12.1-2
 - Drop libwacom-show-stylus, it's a debugging tool that requires extra
   dependencies that we shouldn't pull in everywhere (#2044710)

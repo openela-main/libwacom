@@ -1,0 +1,505 @@
+From 6dd004896f6014f3f7516d2b84efd1bcc5a285e2 Mon Sep 17 00:00:00 2001
+From: Aaron Armstrong Skomra <aaron.skomra@wacom.com>
+Date: Thu, 19 Oct 2023 12:10:12 -0700
+Subject: [PATCH libwacom 06/13] data: add Wacom Cintiq Pro 22 & 17
+
+    Add tablet and layout files for a new Wacom products.
+    Signed-off-by: Aaron Armstrong Skomra <aaron.skomra@wacom.com>
+
+(cherry picked from commit 127b99a0580d50423409d9b086765c704e948e68)
+---
+ data/cintiq-pro-17.tablet      |  48 +++++++++
+ data/cintiq-pro-22.tablet      |  48 +++++++++
+ data/layouts/cintiq-pro-17.svg | 181 +++++++++++++++++++++++++++++++++
+ data/layouts/cintiq-pro-22.svg | 181 +++++++++++++++++++++++++++++++++
+ 4 files changed, 458 insertions(+)
+ create mode 100644 data/cintiq-pro-17.tablet
+ create mode 100644 data/cintiq-pro-22.tablet
+ create mode 100644 data/layouts/cintiq-pro-17.svg
+ create mode 100644 data/layouts/cintiq-pro-22.svg
+
+diff --git ./data/cintiq-pro-17.tablet ../data/cintiq-pro-17.tablet
+new file mode 100644
+index 000000000000..267a491d87c7
+--- /dev/null
++++ ../data/cintiq-pro-17.tablet
+@@ -0,0 +1,48 @@
++# Wacom
++# Cintiq Pro 17
++# DTH-172
++#
++# Button Map:
++# (A=1, B=2, C=3, ...)
++#
++#          *-----------------------*
++#        A |                       | E
++#        B |                       | F
++#        C |                       | G
++#        D |                       | H
++#          |                       |
++#          |        DISPLAY        |
++#          |                       |
++#          |                       |
++#          |                       |
++#          |                       |
++#          |                       |
++#          *-----------------------*
++#
++# NOTE: Buttons are on the back side of the device rather
++# than on the top bezel.
++#
++# sysinfo.wvOAcmWSUM.tar.gz
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/332
++
++[Device]
++Name=Wacom Cintiq Pro 17
++ModelName=DTH-172
++Class=Cintiq
++DeviceMatch=usb:056a:03c4
++Width=15
++Height=8
++Layout=cintiq-pro-17.svg
++Styli=@cintiqpro2022;@mobilestudio;@propengen2;
++IntegratedIn=Display
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=true
++Ring=false
++Buttons=8
++
++[Buttons]
++Left=A;B;C;D
++Right=E;F;G;H
+diff --git ./data/cintiq-pro-22.tablet ../data/cintiq-pro-22.tablet
+new file mode 100644
+index 000000000000..caef2a58e07a
+--- /dev/null
++++ ../data/cintiq-pro-22.tablet
+@@ -0,0 +1,48 @@
++# Wacom
++# Cintiq Pro 22
++# DTH-227
++#
++# Button Map:
++# (A=1, B=2, C=3, ...)
++#
++#          *-----------------------*
++#        A |                       | E
++#        B |                       | F
++#        C |                       | G
++#        D |                       | H
++#          |                       |
++#          |        DISPLAY        |
++#          |                       |
++#          |                       |
++#          |                       |
++#          |                       |
++#          |                       |
++#          *-----------------------*
++#
++# NOTE: Buttons are on the back side of the device rather
++# than on the top bezel.
++#
++# sysinfo.zUn2dGOyeh.tar.gz
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/331
++
++[Device]
++Name=Wacom Cintiq Pro 22
++ModelName=DTH-227
++Class=Cintiq
++DeviceMatch=usb:056a:03d0
++Width=18
++Height=10
++Layout=cintiq-pro-22.svg
++Styli=@cintiqpro2022;@mobilestudio;@propengen2;
++IntegratedIn=Display
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=true
++Ring=false
++Buttons=8
++
++[Buttons]
++Left=A;B;C;D
++Right=E;F;G;H
+diff --git ./data/layouts/cintiq-pro-17.svg ../data/layouts/cintiq-pro-17.svg
+new file mode 100644
+index 000000000000..447982235383
+--- /dev/null
++++ ../data/layouts/cintiq-pro-17.svg
+@@ -0,0 +1,181 @@
++<?xml version="1.0" standalone="no"?>
++<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
++   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
++<svg
++   xmlns="http://www.w3.org/2000/svg"
++   version="1.1"
++   style="color:#000000;stroke:#7f7f7f;fill:none;stroke-width:.25;font-size:8"
++   id="cintiq-pro-17"
++   width="410"
++   height="264">
++  <title
++     id="title">Wacom Cintiq Pro 17</title>
++  <g>
++    <rect
++       id="ButtonA"
++       class="A Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="40"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderA"
++       class="A Leader"
++       d="M 20 42 L 40 42" />
++    <text
++       id="LabelA"
++       class="A Label"
++       x="45"
++       y="42"
++       style="text-anchor:start;">A</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonB"
++       class="B Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="55"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderB"
++       class="B Leader"
++       d="M 20 57 L 40 57" />
++    <text
++       id="LabelB"
++       class="B Label"
++       x="45"
++       y="57"
++       style="text-anchor:start;">B</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonC"
++       class="C Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="70"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderC"
++       class="C Leader"
++       d="M 20 72 L 40 72" />
++    <text
++       id="LabelC"
++       class="C Label"
++       x="45"
++       y="72"
++       style="text-anchor:start;">C</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonD"
++       class="D Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="85"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderD"
++       class="D Leader"
++       d="M 20 87 L 40 87" />
++    <text
++       id="LabelD"
++       class="D Label"
++       x="45"
++       y="87"
++       style="text-anchor:start;">D</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonE"
++       class="E Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="40"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderE"
++       class="E Leader"
++       d="M 380 42 L 360 42" />
++    <text
++       id="LabelE"
++       class="E Label"
++       x="355"
++       y="42"
++       style="text-anchor:end;">E</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonF"
++       class="F Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="55"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderF"
++       class="F Leader"
++       d="M 380 57 L 360 57" />
++    <text
++       id="LabelF"
++       class="F Label"
++       x="355"
++       y="57"
++       style="text-anchor:end;">F</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonG"
++       class="G Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="70"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderG"
++       class="G Leader"
++       d="M 380 72 L 360 72" />
++    <text
++       id="LabelG"
++       class="G Label"
++       x="355"
++       y="72"
++       style="text-anchor:end;">G</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonH"
++       class="H Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="85"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderH"
++       class="H Leader"
++       d="M 380 87 L 360 87" />
++    <text
++       id="LabelH"
++       class="H Label"
++       x="355"
++       y="87"
++       style="text-anchor:end;">H</text>
++  </g>
++</svg>
+diff --git ./data/layouts/cintiq-pro-22.svg ../data/layouts/cintiq-pro-22.svg
+new file mode 100644
+index 000000000000..d8e5fee14201
+--- /dev/null
++++ ../data/layouts/cintiq-pro-22.svg
+@@ -0,0 +1,181 @@
++<?xml version="1.0" standalone="no"?>
++<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
++   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
++<svg
++   xmlns="http://www.w3.org/2000/svg"
++   version="1.1"
++   style="color:#000000;stroke:#7f7f7f;fill:none;stroke-width:.25;font-size:8"
++   id="cintiq-pro-22"
++   width="410"
++   height="264">
++  <title
++     id="title">Wacom Cintiq Pro 22</title>
++  <g>
++    <rect
++       id="ButtonA"
++       class="A Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="40"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderA"
++       class="A Leader"
++       d="M 20 42 L 40 42" />
++    <text
++       id="LabelA"
++       class="A Label"
++       x="45"
++       y="42"
++       style="text-anchor:start;">A</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonB"
++       class="B Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="55"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderB"
++       class="B Leader"
++       d="M 20 57 L 40 57" />
++    <text
++       id="LabelB"
++       class="B Label"
++       x="45"
++       y="57"
++       style="text-anchor:start;">B</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonC"
++       class="C Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="70"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderC"
++       class="C Leader"
++       d="M 20 72 L 40 72" />
++    <text
++       id="LabelC"
++       class="C Label"
++       x="45"
++       y="72"
++       style="text-anchor:start;">C</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonD"
++       class="D Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="85"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderD"
++       class="D Leader"
++       d="M 20 87 L 40 87" />
++    <text
++       id="LabelD"
++       class="D Label"
++       x="45"
++       y="87"
++       style="text-anchor:start;">D</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonE"
++       class="E Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="40"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderE"
++       class="E Leader"
++       d="M 380 42 L 360 42" />
++    <text
++       id="LabelE"
++       class="E Label"
++       x="355"
++       y="42"
++       style="text-anchor:end;">E</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonF"
++       class="F Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="55"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderF"
++       class="F Leader"
++       d="M 380 57 L 360 57" />
++    <text
++       id="LabelF"
++       class="F Label"
++       x="355"
++       y="57"
++       style="text-anchor:end;">F</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonG"
++       class="G Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="70"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderG"
++       class="G Leader"
++       d="M 380 72 L 360 72" />
++    <text
++       id="LabelG"
++       class="G Label"
++       x="355"
++       y="72"
++       style="text-anchor:end;">G</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonH"
++       class="H Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="85"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderH"
++       class="H Leader"
++       d="M 380 87 L 360 87" />
++    <text
++       id="LabelH"
++       class="H Label"
++       x="355"
++       y="87"
++       style="text-anchor:end;">H</text>
++  </g>
++</svg>
+-- 
+2.45.2
+

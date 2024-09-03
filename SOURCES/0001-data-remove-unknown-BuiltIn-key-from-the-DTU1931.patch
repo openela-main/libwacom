@@ -1,0 +1,23 @@
+From dc5810f869180dc47888b9a170d68c946c48d794 Mon Sep 17 00:00:00 2001
+From: Peter Hutterer <peter.hutterer@who-t.net>
+Date: Mon, 24 Jan 2022 12:12:37 +1000
+Subject: [PATCH libwacom 01/13] data: remove unknown BuiltIn key from the
+ DTU1931
+
+(cherry picked from commit 8bec663051077573a795e2f2c87ddbafed00936d)
+---
+ data/dtu-1931.tablet | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git ./data/dtu-1931.tablet ../data/dtu-1931.tablet
+index 5e1aad7f1aea..6548a8271470 100644
+--- ./data/dtu-1931.tablet
++++ ../data/dtu-1931.tablet
+@@ -14,4 +14,3 @@ IntegratedIn=Display
+ [Features]
+ Stylus=true
+ Buttons=0
+-BuiltIn=true
+-- 
+2.45.2
+

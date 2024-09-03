@@ -1,0 +1,91 @@
+From ba79ec1602bd0dbcdc799fe1893fe2e2b439c3d2 Mon Sep 17 00:00:00 2001
+From: Jason Gerecke <killertofu@gmail.com>
+Date: Fri, 20 Jan 2023 10:36:13 -0800
+Subject: [PATCH libwacom 05/13] data: Add "Wacom One pen tablet"
+
+Signed-off-by: Jason Gerecke <jason.gerecke@wacom.com>
+(cherry picked from commit bab4b09d61bef980ddfe6ec782342c28ec77ae1c)
+---
+ data/wacom-one-pen-m.tablet | 31 +++++++++++++++++++++++++++++++
+ data/wacom-one-pen-s.tablet | 31 +++++++++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+)
+ create mode 100644 data/wacom-one-pen-m.tablet
+ create mode 100644 data/wacom-one-pen-s.tablet
+
+diff --git ./data/wacom-one-pen-m.tablet ../data/wacom-one-pen-m.tablet
+new file mode 100644
+index 000000000000..db507539b614
+--- /dev/null
++++ ../data/wacom-one-pen-m.tablet
+@@ -0,0 +1,31 @@
++# Wacom
++# Wacom One Pen tablet medium
++# CTC6110WL
++#
++# sysinfo.u4eUPF71FH.tar.gz
++# sysinfo.IjTSbRB2uI.tar.gz
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/317
++#
++# Stylus with two buttons and no physical eraser. Upper button switches the
++# pen to become an eraser, similar to AES devices.
++#
++# Pen active area: 8.50 x 5.31in
++#
++# Has an "Android mode" with a slightly different HID descriptor which
++# uses the alternate VID:PID of 0531:0105.
++
++[Device]
++Name=Wacom One Pen tablet medium
++ModelName=CTC6110WL
++DeviceMatch=usb:0531:0102;bluetooth:0531:0103;usb:0531:0105
++Class=Bamboo
++Width=9
++Height=5
++# No pad buttons, so no layout
++IntegratedIn=
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=false
++Buttons=0
+diff --git ./data/wacom-one-pen-s.tablet ../data/wacom-one-pen-s.tablet
+new file mode 100644
+index 000000000000..30cf99024dcb
+--- /dev/null
++++ ../data/wacom-one-pen-s.tablet
+@@ -0,0 +1,31 @@
++# Wacom
++# Wacom One Pen tablet small
++# CTC4110WL
++#
++# sysinfo.2l5xhSogc9.tar.gz
++# sysinfo.jIO6fyyckl.tar.gz
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/317
++#
++# Stylus with two buttons and no physical eraser. Upper button switches the
++# pen to become an eraser, similar to AES devices.
++#
++# Pen active area: 5.98 x 3.74in
++#
++# Has an "Android mode" with a slightly different HID descriptor which
++# uses the alternate VID:PID of 0531:0104.
++
++[Device]
++Name=Wacom One Pen tablet small
++ModelName=CTC4110WL
++DeviceMatch=usb:0531:0100;bluetooth:0531:0101;usb:0531:0104
++Class=Bamboo
++Width=6
++Height=4
++# No pad buttons, so no layout
++IntegratedIn=
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=false
++Buttons=0
+-- 
+2.45.2
+

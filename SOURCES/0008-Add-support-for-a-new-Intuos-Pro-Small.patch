@@ -1,0 +1,29 @@
+From 16a15ba8aee72867fa87db61681be8dd8850a3bf Mon Sep 17 00:00:00 2001
+From: Ping Cheng <ping.cheng@wacom.com>
+Date: Fri, 19 Aug 2022 15:11:30 -0700
+Subject: [PATCH libwacom 08/13] Add support for a new "Intuos Pro Small"
+
+Except PID, everything is the same.
+
+Signed-off-by: Ping Cheng <ping.cheng@wacom.com>
+(cherry picked from commit a058fba02939e15b543fd0c9f9a3e66021e3162f)
+---
+ data/intuos-pro-2-s.tablet | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git ./data/intuos-pro-2-s.tablet ../data/intuos-pro-2-s.tablet
+index 48c4143bd2da..12c39bfae6f6 100644
+--- ./data/intuos-pro-2-s.tablet
++++ ../data/intuos-pro-2-s.tablet
+@@ -32,7 +32,7 @@
+ [Device]
+ Name=Wacom Intuos Pro S
+ ModelName=PTH-460
+-DeviceMatch=usb:056a:0392;bluetooth:056a:0393;
++DeviceMatch=usb:056a:0392;bluetooth:056a:0393;usb:056a:03dc;bluetooth:056a:03dd;
+ Class=Intuos5
+ Width=6
+ Height=4
+-- 
+2.45.2
+

@@ -1,0 +1,37 @@
+From 78853212124e24651e7eb888cbd7bb40c3a94441 Mon Sep 17 00:00:00 2001
+From: MSmolarz <49169537+MSmolarz@users.noreply.github.com>
+Date: Mon, 24 Jan 2022 03:27:41 +0100
+Subject: [PATCH libwacom 02/13] Add description for elan-2a70 (#466)
+
+(cherry picked from commit 28396058d1a83e82f66b4c92d7c01cd0d0f6e354)
+---
+ data/elan-2a70.tablet | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+ create mode 100644 data/elan-2a70.tablet
+
+diff --git ./data/elan-2a70.tablet ../data/elan-2a70.tablet
+new file mode 100644
+index 000000000000..88044e0edfad
+--- /dev/null
++++ ../data/elan-2a70.tablet
+@@ -0,0 +1,17 @@
++# ELAN touchscreen/pen sensor present in the HP ProBook X360 11 G5 EE 
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/185
++# sysinfo.B2HOmo20Hc
++
++[Device]
++Name=ELAN1001
++DeviceMatch=i2c:04f3:2a70
++Class=ISDV4
++Width=10
++Height=6
++IntegratedIn=Display;System
++
++[Features]
++Stylus=true
++Touch=true
++Buttons=0
++
+-- 
+2.45.2
+

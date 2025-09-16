@@ -1,0 +1,80 @@
+From 818c47bef2789b79781448b89c616be3d65949ac Mon Sep 17 00:00:00 2001
+From: Aaron Armstrong Skomra <skomra@gmail.com>
+Date: Fri, 27 Oct 2023 16:37:48 -0700
+Subject: [PATCH libwacom] data: remove erroneous dash from latest Cintiq Pro
+ model names
+
+Signed-off-by: Aaron Armstrong Skomra <aaron.skomra@wacom.com>
+(cherry picked from commit 8ffa4ecfe4c9029d1abdda64428bf8122d92dee5)
+---
+ data/cintiq-pro-17.tablet | 4 ++--
+ data/cintiq-pro-22.tablet | 4 ++--
+ data/cintiq-pro-27.tablet | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/data/cintiq-pro-17.tablet b/data/cintiq-pro-17.tablet
+index 267a491d87c7..d8f55dcd8078 100644
+--- a/data/cintiq-pro-17.tablet
++++ b/data/cintiq-pro-17.tablet
+@@ -1,6 +1,6 @@
+ # Wacom
+ # Cintiq Pro 17
+-# DTH-172
++# DTH172
+ #
+ # Button Map:
+ # (A=1, B=2, C=3, ...)
+@@ -27,7 +27,7 @@
+ 
+ [Device]
+ Name=Wacom Cintiq Pro 17
+-ModelName=DTH-172
++ModelName=DTH172
+ Class=Cintiq
+ DeviceMatch=usb:056a:03c4
+ Width=15
+diff --git a/data/cintiq-pro-22.tablet b/data/cintiq-pro-22.tablet
+index caef2a58e07a..befdb0a7a532 100644
+--- a/data/cintiq-pro-22.tablet
++++ b/data/cintiq-pro-22.tablet
+@@ -1,6 +1,6 @@
+ # Wacom
+ # Cintiq Pro 22
+-# DTH-227
++# DTH227
+ #
+ # Button Map:
+ # (A=1, B=2, C=3, ...)
+@@ -27,7 +27,7 @@
+ 
+ [Device]
+ Name=Wacom Cintiq Pro 22
+-ModelName=DTH-227
++ModelName=DTH227
+ Class=Cintiq
+ DeviceMatch=usb:056a:03d0
+ Width=18
+diff --git a/data/cintiq-pro-27.tablet b/data/cintiq-pro-27.tablet
+index a616c1fa88bf..db0c5dbc20b7 100644
+--- a/data/cintiq-pro-27.tablet
++++ b/data/cintiq-pro-27.tablet
+@@ -1,6 +1,6 @@
+ # Wacom
+ # Cintiq Pro 27
+-# DTH-271
++# DTH271
+ #
+ # Button Map:
+ # (A=1, B=2, C=3, ...)
+@@ -27,7 +27,7 @@
+ 
+ [Device]
+ Name=Wacom Cintiq Pro 27
+-ModelName=DTH-271
++ModelName=DTH271
+ Class=Cintiq
+ DeviceMatch=usb:056a:03c0
+ Width=24
+-- 
+2.50.1
+

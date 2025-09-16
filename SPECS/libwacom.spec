@@ -1,6 +1,6 @@
 Name:           libwacom
 Version:        1.12.1
-Release:        3%{?dist}
+Release:        5%{?dist}
 Summary:        Tablet Information Client Library
 Requires:       %{name}-data
 
@@ -21,6 +21,12 @@ Patch09:        0009-wacom-movink.tablet-add-more-groups.patch
 Patch10:        0010-libwacom-only-memcmp-the-led-data-if-we-have-leds.patch
 Patch11:        0011-wacom-movink-13.tablet-correct-the-product-name.patch
 Patch12:        0012-wacom-movink-13.svg-correct-the-name-of-the-product.patch
+Patch13:        0013-data-Added-support-for-Cintiq-Pro-27-525.patch
+Patch14:        0014-data-Add-3rd-gen-Intuos-Pro-devices.patch
+Patch15:        0015-data-remove-erroneous-dash-from-latest-Cintiq-Pro-mo.patch
+Patch16:        0016-layouts-rearrange-the-Intuos-Pro-3rd-L-M-buttons.patch
+Patch17:        0017-layouts-move-the-rings-of-the-Intuos-Pro-3rd-down-in.patch
+Patch18:        0018-RHEL-pretend-the-Intuos-Pro-3rd-Gen-has-Rings-not-Di.patch
 
 BuildRequires:  meson gcc
 BuildRequires:  glib2-devel libgudev1-devel
@@ -101,6 +107,14 @@ rm ${RPM_BUILD_ROOT}/%{_bindir}/libwacom-show-stylus
 %{_datadir}/libwacom/layouts/*.svg
 
 %changelog
+* Thu Aug 21 2025 Peter Hutterer <peter.hutterer@redhat.com> - 1.12.1-5
+- Rearrange the OSD buttons for the Intuos Pro 3rd Gen (RHEL-101881)
+- Use separate Ring/Ring2 assignments 
+
+* Thu Jul 24 2025 Peter Hutterer <peter.hutterer@redhat.com> - 1.12.1-4
+- Add support for the Cintiq Pro 27 (RHEL-101886)
+- Add support for the Intuos Pro 3rd Gen series (RHEL-101881)
+
 * Mon Aug 05 2024 Peter Hutterer <peter.hutterer@redhat.com> - 1.12.1-3
 - Add a set of newer Wacom tablets description files
 

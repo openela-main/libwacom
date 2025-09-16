@@ -1,0 +1,977 @@
+From 52fc7eec49ba1d33bfa36977f33e18d82187ac34 Mon Sep 17 00:00:00 2001
+From: Joshua <Joshua@Joshua-Dickens.com>
+Date: Thu, 29 Sep 2022 13:44:24 -0700
+Subject: [PATCH libwacom] data: Added support for "Cintiq Pro 27" (#525)
+
+* data: Added support for a "Cintiq Pro 27"
+To fix issues with pen compatability on the new tablet with current libwacom.stylus groups the intuos5 group had certain pens split off into a new group called propengen2. All .tablet files affected by this change were updated to include this new group.
+
+Signed-off-by: Joshua Dickens <joshua.dickens@wacom.com>
+(cherry picked from commit 594205738d977757073e29e3224e06b1868cc9a9)
+---
+ data/cintiq-13hd.tablet             |   2 +-
+ data/cintiq-13hdt.tablet            |   2 +-
+ data/cintiq-16-2.tablet             |   2 +-
+ data/cintiq-16.tablet               |   2 +-
+ data/cintiq-21ux2.tablet            |   2 +-
+ data/cintiq-22.tablet               |   2 +-
+ data/cintiq-22hd.tablet             |   2 +-
+ data/cintiq-22hdt.tablet            |   2 +-
+ data/cintiq-24hd-touch.tablet       |   2 +-
+ data/cintiq-24hd.tablet             |   2 +-
+ data/cintiq-27hd.tablet             |   2 +-
+ data/cintiq-27hdt.tablet            |   2 +-
+ data/cintiq-companion-2.tablet      |   2 +-
+ data/cintiq-companion-hybrid.tablet |   2 +-
+ data/cintiq-companion.tablet        |   2 +-
+ data/cintiq-pro-13.tablet           |   2 +-
+ data/cintiq-pro-16-2.tablet         |   2 +-
+ data/cintiq-pro-16.tablet           |   2 +-
+ data/cintiq-pro-24-p.tablet         |   2 +-
+ data/cintiq-pro-24-pt.tablet        |   2 +-
+ data/cintiq-pro-27.tablet           |  48 ++++++++
+ data/cintiq-pro-32.tablet           |   2 +-
+ data/dtk-1660e-2.tablet             |   2 +-
+ data/dtk-1660e.tablet               |   2 +-
+ data/intuos-pro-2-l.tablet          |   2 +-
+ data/intuos-pro-2-m.tablet          |   2 +-
+ data/intuos-pro-2-s.tablet          |   2 +-
+ data/intuos-pro-l.tablet            |   2 +-
+ data/intuos-pro-m.tablet            |   2 +-
+ data/intuos-pro-s.tablet            |   2 +-
+ data/intuos4-12x19.tablet           |   2 +-
+ data/intuos4-4x6.tablet             |   2 +-
+ data/intuos4-6x9-wl.tablet          |   2 +-
+ data/intuos4-6x9.tablet             |   2 +-
+ data/intuos4-8x13.tablet            |   2 +-
+ data/intuos5-m.tablet               |   2 +-
+ data/intuos5-s.tablet               |   2 +-
+ data/intuos5-touch-l.tablet         |   2 +-
+ data/intuos5-touch-m.tablet         |   2 +-
+ data/intuos5-touch-s.tablet         |   2 +-
+ data/layouts/cintiq-pro-27.svg      | 181 ++++++++++++++++++++++++++++
+ data/libwacom.stylus                |  32 +++--
+ data/mobilestudio-pro-13-2.tablet   |   2 +-
+ data/mobilestudio-pro-13.tablet     |   2 +-
+ data/mobilestudio-pro-16-2.tablet   |   2 +-
+ data/mobilestudio-pro-16-3.tablet   |   2 +-
+ data/mobilestudio-pro-16.tablet     |   2 +-
+ 47 files changed, 297 insertions(+), 52 deletions(-)
+ create mode 100644 data/cintiq-pro-27.tablet
+ create mode 100644 data/layouts/cintiq-pro-27.svg
+
+diff --git a/data/cintiq-13hd.tablet b/data/cintiq-13hd.tablet
+index 7083aa87337a..c86ca2ec349e 100644
+--- a/data/cintiq-13hd.tablet
++++ b/data/cintiq-13hd.tablet
+@@ -29,7 +29,7 @@ DeviceMatch=usb:056a:0304
+ Width=12
+ Height=7
+ Layout=cintiq-13hd.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-13hdt.tablet b/data/cintiq-13hdt.tablet
+index 0301f08c6c77..0d6b2ecfac20 100644
+--- a/data/cintiq-13hdt.tablet
++++ b/data/cintiq-13hdt.tablet
+@@ -31,7 +31,7 @@ PairedID=usb:056a:0335
+ Width=12
+ Height=7
+ Layout=cintiq-13hd.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-16-2.tablet b/data/cintiq-16-2.tablet
+index e35aa60ae47a..10e1ba1c426e 100644
+--- a/data/cintiq-16-2.tablet
++++ b/data/cintiq-16-2.tablet
+@@ -10,7 +10,7 @@ DeviceMatch=usb:056a:03ae
+ Width=14
+ Height=8
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-16.tablet b/data/cintiq-16.tablet
+index 8d72fa1af32c..c620898f8c19 100644
+--- a/data/cintiq-16.tablet
++++ b/data/cintiq-16.tablet
+@@ -10,7 +10,7 @@ DeviceMatch=usb:056a:0390
+ Width=14
+ Height=8
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-21ux2.tablet b/data/cintiq-21ux2.tablet
+index a81fae5565d1..b586ce2231f1 100644
+--- a/data/cintiq-21ux2.tablet
++++ b/data/cintiq-21ux2.tablet
+@@ -50,7 +50,7 @@ Class=Cintiq
+ Width=17
+ Height=13
+ Layout=cintiq-21ux2.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-22.tablet b/data/cintiq-22.tablet
+index 322f8135cf36..2d3979ce0de5 100644
+--- a/data/cintiq-22.tablet
++++ b/data/cintiq-22.tablet
+@@ -10,7 +10,7 @@ DeviceMatch=usb:056a:0391
+ Width=19
+ Height=10
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-22hd.tablet b/data/cintiq-22hd.tablet
+index 86c3e2d738e0..f06b08ea1eb7 100644
+--- a/data/cintiq-22hd.tablet
++++ b/data/cintiq-22hd.tablet
+@@ -38,7 +38,7 @@ Class=Cintiq
+ Width=19
+ Height=11
+ Layout=cintiq-22hd.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-22hdt.tablet b/data/cintiq-22hdt.tablet
+index af51a6130a53..2a0f5451d2cb 100644
+--- a/data/cintiq-22hdt.tablet
++++ b/data/cintiq-22hdt.tablet
+@@ -40,7 +40,7 @@ Class=Cintiq
+ Width=19
+ Height=11
+ Layout=cintiq-22hd.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-24hd-touch.tablet b/data/cintiq-24hd-touch.tablet
+index 425d6c5a81ef..45e5e5ff4682 100644
+--- a/data/cintiq-24hd-touch.tablet
++++ b/data/cintiq-24hd-touch.tablet
+@@ -48,7 +48,7 @@ Class=Cintiq
+ Width=21
+ Height=13
+ Layout=cintiq-24hd.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-24hd.tablet b/data/cintiq-24hd.tablet
+index b6a1e6ad4066..92b67c923f69 100644
+--- a/data/cintiq-24hd.tablet
++++ b/data/cintiq-24hd.tablet
+@@ -46,7 +46,7 @@ Class=Cintiq
+ Width=21
+ Height=13
+ Layout=cintiq-24hd.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-27hd.tablet b/data/cintiq-27hd.tablet
+index b8c9377605f0..4003e769af6c 100644
+--- a/data/cintiq-27hd.tablet
++++ b/data/cintiq-27hd.tablet
+@@ -10,7 +10,7 @@ DeviceMatch=usb:056a:032a
+ Class=Cintiq
+ Width=24
+ Height=12
+-Styli=@intuos5;
++Styli=@intuos5;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-27hdt.tablet b/data/cintiq-27hdt.tablet
+index e24a41111314..63504490f2e8 100644
+--- a/data/cintiq-27hdt.tablet
++++ b/data/cintiq-27hdt.tablet
+@@ -12,7 +12,7 @@ PairedID=usb:056a:032c
+ Class=Cintiq
+ Width=24
+ Height=12
+-Styli=@intuos5;
++Styli=@intuos5;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-companion-2.tablet b/data/cintiq-companion-2.tablet
+index 0b8a031148bf..e5f47dd50128 100644
+--- a/data/cintiq-companion-2.tablet
++++ b/data/cintiq-companion-2.tablet
+@@ -35,7 +35,7 @@ PairedID=usb:056a:0326
+ Width=12
+ Height=7
+ Layout=cintiq-companion-2.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display;System
+ 
+ [Features]
+diff --git a/data/cintiq-companion-hybrid.tablet b/data/cintiq-companion-hybrid.tablet
+index 93a0dbd55df9..23450f32f81a 100644
+--- a/data/cintiq-companion-hybrid.tablet
++++ b/data/cintiq-companion-hybrid.tablet
+@@ -33,7 +33,7 @@ PairedID=usb:056a:0309
+ Width=12
+ Height=7
+ Layout=cintiq-companion-hybrid.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-companion.tablet b/data/cintiq-companion.tablet
+index 9ee8d4c1ff46..44415a7972aa 100644
+--- a/data/cintiq-companion.tablet
++++ b/data/cintiq-companion.tablet
+@@ -33,7 +33,7 @@ PairedID=usb:056a:030c
+ Width=12
+ Height=7
+ Layout=cintiq-companion.svg
+-Styli=@intuos5;@intuos4;
++Styli=@intuos5;@intuos4;@propengen2;
+ IntegratedIn=Display;System
+ 
+ [Features]
+diff --git a/data/cintiq-pro-13.tablet b/data/cintiq-pro-13.tablet
+index ca5e2284040f..9dfbf88dcd29 100644
+--- a/data/cintiq-pro-13.tablet
++++ b/data/cintiq-pro-13.tablet
+@@ -35,7 +35,7 @@ PairedID=usb:056a:0353
+ Width=12
+ Height=7
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-pro-16-2.tablet b/data/cintiq-pro-16-2.tablet
+index 8133a2c4bc90..30d841e530bb 100644
+--- a/data/cintiq-pro-16-2.tablet
++++ b/data/cintiq-pro-16-2.tablet
+@@ -32,7 +32,7 @@ PairedID=usb:056a:03b3
+ Width=14
+ Height=8
+ Layout=cintiq-pro-16-2.svg
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-pro-16.tablet b/data/cintiq-pro-16.tablet
+index f2f8869f8130..09ad8122c6eb 100644
+--- a/data/cintiq-pro-16.tablet
++++ b/data/cintiq-pro-16.tablet
+@@ -35,7 +35,7 @@ PairedID=usb:056a:0354
+ Width=14
+ Height=8
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-pro-24-p.tablet b/data/cintiq-pro-24-p.tablet
+index 1cf9be726024..a584781813ca 100644
+--- a/data/cintiq-pro-24-p.tablet
++++ b/data/cintiq-pro-24-p.tablet
+@@ -34,7 +34,7 @@ DeviceMatch=usb:056a:037c
+ Width=20
+ Height=12
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-pro-24-pt.tablet b/data/cintiq-pro-24-pt.tablet
+index 806f4edea5ae..4776c89015f9 100644
+--- a/data/cintiq-pro-24-pt.tablet
++++ b/data/cintiq-pro-24-pt.tablet
+@@ -35,7 +35,7 @@ PairedID=usb:056a:0355
+ Width=20
+ Height=12
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/cintiq-pro-27.tablet b/data/cintiq-pro-27.tablet
+new file mode 100644
+index 000000000000..a616c1fa88bf
+--- /dev/null
++++ b/data/cintiq-pro-27.tablet
+@@ -0,0 +1,48 @@
++# Wacom
++# Cintiq Pro 27
++# DTH-271
++#
++# Button Map:
++# (A=1, B=2, C=3, ...)
++#
++#          *-----------------------*
++#        A |                       | E
++#        B |                       | F
++#        C |                       | G
++#        D |                       | H
++#          |                       |
++#          |        DISPLAY        |
++#          |                       |
++#          |                       |
++#          |                       |
++#          |                       |
++#          |                       |
++#          *-----------------------*
++#
++# NOTE: Buttons are on the back side of the device rather
++# than on the top bezel.
++#
++# sysinfo.rLRz2hqrEy
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/260#issue-1391416660
++
++[Device]
++Name=Wacom Cintiq Pro 27
++ModelName=DTH-271
++Class=Cintiq
++DeviceMatch=usb:056a:03c0
++Width=24
++Height=13
++Layout=cintiq-pro-27.svg
++Styli=@cintiqpro2022;@mobilestudio;@propengen2;
++IntegratedIn=Display
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=true
++Ring=false
++Buttons=8
++
++[Buttons]
++Left=A;B;C;D
++Right=E;F;G;H
+diff --git a/data/cintiq-pro-32.tablet b/data/cintiq-pro-32.tablet
+index 772efdb2b4e9..dada3f322129 100644
+--- a/data/cintiq-pro-32.tablet
++++ b/data/cintiq-pro-32.tablet
+@@ -35,7 +35,7 @@ PairedID=usb:056a:0356
+ Width=27
+ Height=15
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/dtk-1660e-2.tablet b/data/dtk-1660e-2.tablet
+index dd29e481208b..3223ad9be61c 100644
+--- a/data/dtk-1660e-2.tablet
++++ b/data/dtk-1660e-2.tablet
+@@ -9,7 +9,7 @@ DeviceMatch=usb:056a:03b0
+ Width=14
+ Height=8
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/dtk-1660e.tablet b/data/dtk-1660e.tablet
+index 4a89838acfa8..321879519b7c 100644
+--- a/data/dtk-1660e.tablet
++++ b/data/dtk-1660e.tablet
+@@ -9,7 +9,7 @@ DeviceMatch=usb:056a:0396
+ Width=14
+ Height=8
+ # No pad buttons, so no layout
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display
+ 
+ [Features]
+diff --git a/data/intuos-pro-2-l.tablet b/data/intuos-pro-2-l.tablet
+index c544909bb997..75e1f695e905 100644
+--- a/data/intuos-pro-2-l.tablet
++++ b/data/intuos-pro-2-l.tablet
+@@ -51,7 +51,7 @@ Width=12
+ Height=8
+ Layout=intuos-pro-2-l.svg
+ IntegratedIn=
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos-pro-2-m.tablet b/data/intuos-pro-2-m.tablet
+index bfa775ed3b46..581082f5a57f 100644
+--- a/data/intuos-pro-2-m.tablet
++++ b/data/intuos-pro-2-m.tablet
+@@ -51,7 +51,7 @@ Width=9
+ Height=6
+ Layout=intuos-pro-2-m.svg
+ IntegratedIn=
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos-pro-2-s.tablet b/data/intuos-pro-2-s.tablet
+index 12c39bfae6f6..9613f5a46556 100644
+--- a/data/intuos-pro-2-s.tablet
++++ b/data/intuos-pro-2-s.tablet
+@@ -38,7 +38,7 @@ Width=6
+ Height=4
+ Layout=intuos-pro-2-s.svg
+ IntegratedIn=
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos-pro-l.tablet b/data/intuos-pro-l.tablet
+index 44d426a66ac3..9c4fee2f4209 100644
+--- a/data/intuos-pro-l.tablet
++++ b/data/intuos-pro-l.tablet
+@@ -51,7 +51,7 @@ Width=13
+ Height=8
+ Layout=intuos-pro-l.svg
+ IntegratedIn=
+-Styli=@intuos4-lens;@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-lens;@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos-pro-m.tablet b/data/intuos-pro-m.tablet
+index de880cd24b4c..e507e2c13180 100644
+--- a/data/intuos-pro-m.tablet
++++ b/data/intuos-pro-m.tablet
+@@ -51,7 +51,7 @@ Width=9
+ Height=6
+ Layout=intuos-pro-m.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos-pro-s.tablet b/data/intuos-pro-s.tablet
+index 5bfc733e47e4..4e35fa589388 100644
+--- a/data/intuos-pro-s.tablet
++++ b/data/intuos-pro-s.tablet
+@@ -49,7 +49,7 @@ Width=6
+ Height=4
+ Layout=intuos-pro-s.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos4-12x19.tablet b/data/intuos4-12x19.tablet
+index 1b76c819c96c..2dc9ea9d233e 100644
+--- a/data/intuos4-12x19.tablet
++++ b/data/intuos4-12x19.tablet
+@@ -41,7 +41,7 @@ Width=19
+ Height=12
+ Layout=intuos4-12x19.svg
+ IntegratedIn=
+-Styli=@intuos4-lens;@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-lens;@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Reversible=true
+diff --git a/data/intuos4-4x6.tablet b/data/intuos4-4x6.tablet
+index e6cc9a3b87be..1147716048e2 100644
+--- a/data/intuos4-4x6.tablet
++++ b/data/intuos4-4x6.tablet
+@@ -42,7 +42,7 @@ Width=6
+ Height=4
+ Layout=intuos4-4x6.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Reversible=true
+diff --git a/data/intuos4-6x9-wl.tablet b/data/intuos4-6x9-wl.tablet
+index d2f4ef04a6fb..bd60600d319e 100644
+--- a/data/intuos4-6x9-wl.tablet
++++ b/data/intuos4-6x9-wl.tablet
+@@ -41,7 +41,7 @@ Width=8
+ Height=5
+ IntegratedIn=
+ Layout=intuos4-6x9-wl.svg
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Reversible=true
+diff --git a/data/intuos4-6x9.tablet b/data/intuos4-6x9.tablet
+index d1ae6532163d..875fd078febc 100644
+--- a/data/intuos4-6x9.tablet
++++ b/data/intuos4-6x9.tablet
+@@ -41,7 +41,7 @@ Width=9
+ Height=6
+ Layout=intuos4-6x9.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Reversible=true
+diff --git a/data/intuos4-8x13.tablet b/data/intuos4-8x13.tablet
+index dec15d33f100..cfe3afdc4635 100644
+--- a/data/intuos4-8x13.tablet
++++ b/data/intuos4-8x13.tablet
+@@ -41,7 +41,7 @@ Width=13
+ Height=8
+ Layout=intuos4-8x13.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Reversible=true
+diff --git a/data/intuos5-m.tablet b/data/intuos5-m.tablet
+index c0815501bfb8..8370397ccc9e 100644
+--- a/data/intuos5-m.tablet
++++ b/data/intuos5-m.tablet
+@@ -51,7 +51,7 @@ Width=9
+ Height=6
+ Layout=intuos5-m.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos5-s.tablet b/data/intuos5-s.tablet
+index a8159eb6ffeb..e67585cdf57e 100644
+--- a/data/intuos5-s.tablet
++++ b/data/intuos5-s.tablet
+@@ -49,7 +49,7 @@ Width=6
+ Height=4
+ Layout=intuos5-s.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos5-touch-l.tablet b/data/intuos5-touch-l.tablet
+index 75ed69b48f0c..85c4fa8003b9 100644
+--- a/data/intuos5-touch-l.tablet
++++ b/data/intuos5-touch-l.tablet
+@@ -51,7 +51,7 @@ Width=13
+ Height=8
+ Layout=intuos5-l.svg
+ IntegratedIn=
+-Styli=@intuos4-lens;@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-lens;@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos5-touch-m.tablet b/data/intuos5-touch-m.tablet
+index 138d19f6d71f..46421d0fd3da 100644
+--- a/data/intuos5-touch-m.tablet
++++ b/data/intuos5-touch-m.tablet
+@@ -51,7 +51,7 @@ Width=9
+ Height=6
+ Layout=intuos5-m.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/intuos5-touch-s.tablet b/data/intuos5-touch-s.tablet
+index 21af4005769e..7c0af1e578af 100644
+--- a/data/intuos5-touch-s.tablet
++++ b/data/intuos5-touch-s.tablet
+@@ -49,7 +49,7 @@ Width=6
+ Height=4
+ Layout=intuos5-s.svg
+ IntegratedIn=
+-Styli=@intuos4-puck;@intuos5;@intuos4;
++Styli=@intuos4-puck;@intuos5;@intuos4;@propengen2;
+ 
+ [Features]
+ Stylus=true
+diff --git a/data/layouts/cintiq-pro-27.svg b/data/layouts/cintiq-pro-27.svg
+new file mode 100644
+index 000000000000..da20fb552e7d
+--- /dev/null
++++ b/data/layouts/cintiq-pro-27.svg
+@@ -0,0 +1,181 @@
++<?xml version="1.0" standalone="no"?>
++<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
++   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
++<svg
++   xmlns="http://www.w3.org/2000/svg"
++   version="1.1"
++   style="color:#000000;stroke:#7f7f7f;fill:none;stroke-width:.25;font-size:8"
++   id="cintiq-pro-27"
++   width="410"
++   height="264">
++  <title
++     id="title">Wacom Cintiq Pro 27</title>
++  <g>
++    <rect
++       id="ButtonA"
++       class="A Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="40"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderA"
++       class="A Leader"
++       d="M 20 42 L 40 42" />
++    <text
++       id="LabelA"
++       class="A Label"
++       x="45"
++       y="42"
++       style="text-anchor:start;">A</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonB"
++       class="B Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="55"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderB"
++       class="B Leader"
++       d="M 20 57 L 40 57" />
++    <text
++       id="LabelB"
++       class="B Label"
++       x="45"
++       y="57"
++       style="text-anchor:start;">B</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonC"
++       class="C Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="70"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderC"
++       class="C Leader"
++       d="M 20 72 L 40 72" />
++    <text
++       id="LabelC"
++       class="C Label"
++       x="45"
++       y="72"
++       style="text-anchor:start;">C</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonD"
++       class="D Button"
++       rx=".5"
++       ry=".5"
++       x="1"
++       y="85"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderD"
++       class="D Leader"
++       d="M 20 87 L 40 87" />
++    <text
++       id="LabelD"
++       class="D Label"
++       x="45"
++       y="87"
++       style="text-anchor:start;">D</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonE"
++       class="E Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="40"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderE"
++       class="E Leader"
++       d="M 380 42 L 360 42" />
++    <text
++       id="LabelE"
++       class="E Label"
++       x="355"
++       y="42"
++       style="text-anchor:end;">E</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonF"
++       class="F Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="55"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderF"
++       class="F Leader"
++       d="M 380 57 L 360 57" />
++    <text
++       id="LabelF"
++       class="F Label"
++       x="355"
++       y="57"
++       style="text-anchor:end;">F</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonG"
++       class="G Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="70"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderG"
++       class="G Leader"
++       d="M 380 72 L 360 72" />
++    <text
++       id="LabelG"
++       class="G Label"
++       x="355"
++       y="72"
++       style="text-anchor:end;">G</text>
++  </g>
++  <g>
++    <rect
++       id="ButtonH"
++       class="H Button"
++       rx=".5"
++       ry=".5"
++       x="394"
++       y="85"
++       width="15"
++       height="5" />
++    <path
++       id="LeaderH"
++       class="H Leader"
++       d="M 380 87 L 360 87" />
++    <text
++       id="LabelH"
++       class="H Label"
++       x="355"
++       y="87"
++       style="text-anchor:end;">H</text>
++  </g>
++</svg>
+diff --git a/data/libwacom.stylus b/data/libwacom.stylus
+index 17fea9090990..60f2ffb7eda0 100644
+--- a/data/libwacom.stylus
++++ b/data/libwacom.stylus
+@@ -291,6 +291,22 @@ Buttons=2
+ Axes=Tilt;Pressure;Distance;
+ Type=General
+ 
++[0x200]
++# Cintiq Pro 2022
++Name=Pro Pen 3
++Group=cintiqpro2022
++Buttons=3
++Axes=Tilt;Pressure;Distance;
++Type=General
++
++[0x40200]
++# Cintiq Pro 2022
++Name=Pro Pen 3
++Group=cintiqpro2022
++Buttons=3
++Axes=Tilt;Pressure;Distance;
++Type=General
++
+ [0x80842]
+ # MobileStudio Pro
+ Name=Pro Pen 3D
+@@ -355,7 +371,7 @@ Type=Marker
+ [0x100804]
+ # Intuos4, 5 and Cintiq 21UX2, 22HD, 24HD
+ Name=Art Pen
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x10080c;
+ Buttons=2
+ Axes=Tilt;Pressure;Distance;RotationZ;
+@@ -364,7 +380,7 @@ Type=Marker
+ [0x100802]
+ # Intuos4, 5 and Cintiq 21UX2, 24HD
+ Name=Grip Pen
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x10080a;
+ Buttons=2
+ Axes=Tilt;Pressure;Distance;
+@@ -390,7 +406,7 @@ Type=Classic
+ [0x140802]
+ # Intuos4, 5 and Cintiq 21UX2, 24HD
+ Name=Classic Pen
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x14080a;
+ Buttons=2
+ Axes=Tilt;Pressure;Distance;
+@@ -399,7 +415,7 @@ Type=Classic
+ [0x160802]
+ # Cintiq 13HD Pro Pen
+ Name=Pro Pen
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x16080a;
+ Buttons=2
+ Axes=Tilt;Pressure;Distance;
+@@ -536,7 +552,7 @@ Type=Classic
+ [0x14080a]
+ # Intuos4, 5 and Cintiq 21UX2, 24HD
+ Name=Classic Pen Eraser
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x140802;
+ EraserType=Invert
+ Buttons=2
+@@ -546,7 +562,7 @@ Type=Classic
+ [0x10080c]
+ # Intuos4, 5 and 13HD, 24HD Art Pen
+ Name=Art Pen Eraser
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x100804;
+ EraserType=Invert
+ Buttons=2
+@@ -556,7 +572,7 @@ Type=Marker
+ [0x10080a]
+ # Intuos4, 5 and Cintiq 21UX2, 24HD
+ Name=Grip Pen Eraser
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x100802;
+ EraserType=Invert
+ Buttons=2
+@@ -576,7 +592,7 @@ Type=General
+ [0x16080a]
+ # Cintiq 13HD
+ Name=Pro Pen Eraser
+-Group=intuos5
++Group=propengen2
+ PairedStylusIds=0x160802;
+ EraserType=Invert
+ Buttons=2
+diff --git a/data/mobilestudio-pro-13-2.tablet b/data/mobilestudio-pro-13-2.tablet
+index f2cce71ce06f..6be21cb244ce 100644
+--- a/data/mobilestudio-pro-13-2.tablet
++++ b/data/mobilestudio-pro-13-2.tablet
+@@ -42,7 +42,7 @@ PairedID=usb:056a:039a
+ Width=12
+ Height=7
+ Layout=mobilestudio-pro-13.svg
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display;System
+ 
+ [Features]
+diff --git a/data/mobilestudio-pro-13.tablet b/data/mobilestudio-pro-13.tablet
+index da1eed4cb991..61963bd074bf 100644
+--- a/data/mobilestudio-pro-13.tablet
++++ b/data/mobilestudio-pro-13.tablet
+@@ -42,7 +42,7 @@ PairedID=usb:056a:034a
+ Width=12
+ Height=7
+ Layout=mobilestudio-pro-13.svg
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display;System
+ 
+ [Features]
+diff --git a/data/mobilestudio-pro-16-2.tablet b/data/mobilestudio-pro-16-2.tablet
+index f9c62a541410..f11c90957712 100644
+--- a/data/mobilestudio-pro-16-2.tablet
++++ b/data/mobilestudio-pro-16-2.tablet
+@@ -44,7 +44,7 @@ PairedID=usb:056a:039b
+ Width=14
+ Height=8
+ Layout=mobilestudio-pro-16.svg
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display;System
+ 
+ [Features]
+diff --git a/data/mobilestudio-pro-16-3.tablet b/data/mobilestudio-pro-16-3.tablet
+index 1a8efeaf761f..b6a932c513fc 100644
+--- a/data/mobilestudio-pro-16-3.tablet
++++ b/data/mobilestudio-pro-16-3.tablet
+@@ -44,7 +44,7 @@ PairedID=usb:056a:03ac
+ Width=14
+ Height=8
+ Layout=mobilestudio-pro-16.svg
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display;System
+ 
+ [Features]
+diff --git a/data/mobilestudio-pro-16.tablet b/data/mobilestudio-pro-16.tablet
+index 379b4e708ca4..a99e171fa086 100644
+--- a/data/mobilestudio-pro-16.tablet
++++ b/data/mobilestudio-pro-16.tablet
+@@ -44,7 +44,7 @@ PairedID=usb:056a:034b
+ Width=14
+ Height=8
+ Layout=mobilestudio-pro-16.svg
+-Styli=@intuos5;@mobilestudio;
++Styli=@intuos5;@mobilestudio;@propengen2;
+ IntegratedIn=Display;System
+ 
+ [Features]
+-- 
+2.50.1
+

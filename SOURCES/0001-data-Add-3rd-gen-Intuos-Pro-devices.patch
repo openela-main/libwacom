@@ -1,0 +1,874 @@
+From 7e27962b48ccf934ad78a4a11e5185be5d7f716d Mon Sep 17 00:00:00 2001
+From: Jason Gerecke <killertofu@gmail.com>
+Date: Thu, 20 Jun 2024 10:32:57 -0700
+Subject: [PATCH libwacom 1/3] data: Add 3rd gen Intuos Pro devices
+
+Signed-off-by: Jason Gerecke <jason.gerecke@wacom.com>
+(cherry picked from commit 0dc703f7a727a869bf5c6a370a2a49a124716254)
+---
+ data/layouts/wacom-intuos-pro-3-l.svg | 255 ++++++++++++++++++++++++++
+ data/layouts/wacom-intuos-pro-3-m.svg | 255 ++++++++++++++++++++++++++
+ data/layouts/wacom-intuos-pro-3-s.svg | 135 ++++++++++++++
+ data/wacom-intuos-pro-3-l.tablet      |  57 ++++++
+ data/wacom-intuos-pro-3-m.tablet      |  57 ++++++
+ data/wacom-intuos-pro-3-s.tablet      |  54 ++++++
+ 6 files changed, 813 insertions(+)
+ create mode 100644 data/layouts/wacom-intuos-pro-3-l.svg
+ create mode 100644 data/layouts/wacom-intuos-pro-3-m.svg
+ create mode 100644 data/layouts/wacom-intuos-pro-3-s.svg
+ create mode 100644 data/wacom-intuos-pro-3-l.tablet
+ create mode 100644 data/wacom-intuos-pro-3-m.tablet
+ create mode 100644 data/wacom-intuos-pro-3-s.tablet
+
+diff --git ./data/layouts/wacom-intuos-pro-3-l.svg ../data/layouts/wacom-intuos-pro-3-l.svg
+new file mode 100644
+index 000000000000..466fd9e8aa76
+--- /dev/null
++++ ../data/layouts/wacom-intuos-pro-3-l.svg
+@@ -0,0 +1,255 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++
++<svg
++   width="377mm"
++   height="252mm"
++   viewBox="0 0 377 252"
++   version="1.1"
++   id="intuos-pro-l-ptk870"
++   style="fill:none;stroke:#7f7f7f;stroke-width:0.25;font-size:6;font-family:monospace"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:svg="http://www.w3.org/2000/svg">
++  <title
++     id="title">Wacom Intuos Pro L (PTK870)</title>
++  <g
++     id="g1">
++    <path
++       id="ButtonA"
++       class="Button A"
++       d="M 123.918 6.4004 C 118.908 1.76944 111.18 1.76813 106.168 6.3974 L 110.541 10.7699 C 113.131 8.54602 116.957 8.5473 119.546 10.7729 Z" />
++    <path
++       id="LeaderA"
++       class="Leader A"
++       d="M 93.7051 6.89279 L 109.952 6.89279" />
++    <text
++       id="LabelA"
++       class="Label A"
++       x="88.7051"
++       y="7.11235"
++       style="text-anchor:end;">A</text>
++  </g>
++  <g
++     id="g2">
++    <path
++       id="ButtonB"
++       class="Button B"
++       d="M 120.243 20.4721 L 124.629 24.8587 C 129.276 19.8443 129.277 12.0967 124.63 7.08171 L 120.242 11.4696 C 122.466 14.0587 122.466 17.8831 120.242 20.4721 Z" />
++    <path
++       id="LeaderB"
++       class="Leader B"
++       d="M 93.7051 43.56015 L 125.909 43.56015 L 125.835 19.5" />
++    <text
++       id="LabelB"
++       class="Label B"
++       x="88.7051"
++       y="43.77971"
++       style="text-anchor:end;">B</text>
++  </g>
++  <g
++     id="g3">
++    <path
++       id="ButtonC"
++       class="Button C"
++       d="M 110.519 21.1934 L 106.154 25.5581 C 111.17 30.2049 118.918 30.2035 123.932 25.5551 L 119.568 21.1904 C 116.972 23.4409 113.116 23.4417 110.519 21.1924 Z" />
++    <path
++       id="LeaderC"
++       class="Leader C"
++       d="M 93.7051 25.22647 L 109.952 25.22647" />
++    <text
++       id="LabelC"
++       class="Label C"
++       x="88.7051"
++       y="25.44603"
++       style="text-anchor:end;">C</text>
++  </g>
++  <g
++     id="g4">
++    <path
++       id="ButtonD"
++       class="Button D"
++       d="M 109.844 11.4671 L 105.472 7.09461 C 100.841 12.1059 100.841 19.8351 105.472 24.8459 L 109.844 20.4747 C 107.618 17.8848 107.618 14.057 109.844 11.4671 Z" />
++    <path
++       id="LeaderD"
++       class="Leader D"
++       d="M 93.7051 16.05963 L 104.335 16.05963" />
++    <text
++       id="LabelD"
++       class="Label D"
++       x="88.7051"
++       y="16.27919"
++       style="text-anchor:end;">D</text>
++  </g>
++  <g
++     id="g5">
++    <path
++       id="ButtonI"
++       class="Button I ModeSwitch"
++       d="M 115.039 10.6101 C 112.868 10.6101 110.911 11.9178 110.08 13.9235 C 109.25 15.9292 109.709 18.2378 111.244 19.7729 C 112.779 21.308 115.088 21.7672 117.093 20.9364 C 119.099 20.1057 120.407 18.1485 120.407 15.9776 C 120.407 14.554 119.841 13.1888 118.835 12.1822 C 117.828 11.1756 116.463 10.6101 115.039 10.6101 Z" />
++    <path
++       id="LeaderI"
++       class="Leader I ModeSwitch"
++       d="M 93.7051 34.39331 L 115.113 34.39331 L 115.039 19.5003" />
++    <text
++       id="LabelI"
++       class="Label I ModeSwitch"
++       x="88.7051"
++       y="34.61287"
++       style="text-anchor:end;">I</text>
++  </g>
++  <g
++     id="g7">
++    <path
++       id="DialCCW"
++       class="DialCCW Button"
++       d="M 143.885 5.88344 L 146.132 4.78296 L 146.132 5.51662 C 147.475 5.43235 148.804 5.82284 149.877 6.61708 C 148.73 6.00801 147.38 5.87584 146.132 6.25026 L 146.132 6.9839 Z" />
++    <path
++       id="LeaderDialCCW"
++       class="DialCCW Dial Leader"
++       d="M 151.853 6.89279 L 166.099 6.89279" />
++    <text
++       id="LabelDialCCW"
++       class="DialCCW Dial Label"
++       x="171.099"
++       y="7.2452002"
++       style="text-anchor:start;">CCW</text>
++    <path
++       id="DialCW"
++       class="DialCW Button"
++       d="M 143.883 26.4255 L 146.13 25.3251 L 146.13 26.0587 C 147.428 26.2501 148.753 25.9905 149.875 25.3251 C 148.902 26.3215 147.537 26.8566 146.13 26.7923 L 146.13 27.526 Z" />
++    <path
++       id="LeaderDialCW"
++       class="DialCW Dial Leader"
++       d="M 151.853 25.0477 L 166.099 25.0477" />
++    <text
++       id="LabelDialCW"
++       class="DialCW Dial Label"
++       x="171.099"
++       y="25.45682"
++       style="text-anchor:start;">CW</text>
++    <path
++       id="Dial"
++       class="Dial TouchDial"
++       d="M 146.854 3.00752 C 141.607 3.00752 136.878 6.16756 134.87 11.0141 C 132.863 15.8607 133.972 21.4393 137.682 25.1487 C 141.391 28.8581 146.97 29.9677 151.817 27.9602 C 156.664 25.9527 159.824 21.2234 159.824 15.9775 C 159.824 8.81439 154.017 3.00752 146.854 3.00752 Z" />
++  </g>
++  <g
++     id="g11">
++    <path
++       id="ButtonE"
++       class="Button E"
++       d="M 270.744 6.44612 C 265.734 1.81516 258.006 1.81385 252.994 6.44312 L 257.367 10.8156 C 259.957 8.59174 263.783 8.59302 266.372 10.8186 Z" />
++    <path
++       id="LeaderE"
++       class="Leader E"
++       d="M 283.198 6.93851 L 266.952 6.93851" />
++    <text
++       id="LabelE"
++       class="Label E"
++       x="288.198"
++       y="7.11235"
++       style="text-anchor:start;">E</text>
++  </g>
++  <g
++     id="g12">
++    <path
++       id="ButtonF"
++       class="Button F"
++       d="M 267.068 20.5178 L 271.455 24.9044 C 276.102 19.89 276.103 12.1424 271.456 7.12743 L 267.068 11.5153 C 269.291 14.1044 269.291 17.9288 267.068 20.5178 Z" />
++    <path
++       id="LeaderF"
++       class="Leader F"
++       d="M 283.198 16.05963 L 272.569 16.05963" />
++    <text
++       id="LabelF"
++       class="Label F"
++       x="288.198"
++       y="16.27919"
++       style="text-anchor:start;">F</text>
++  </g>
++  <g
++     id="g13">
++    <path
++       id="ButtonG"
++       class="Button G"
++       d="M 257.345 21.2391 L 252.98 25.6038 C 257.996 30.2506 265.744 30.2492 270.758 25.6008 L 266.394 21.2361 C 263.797 23.4866 259.942 23.4874 257.345 21.2381 Z" />
++    <path
++       id="LeaderG"
++       class="Leader G"
++       d="M 283.198 25.22647 L 266.952 25.22647" />
++    <text
++       id="LabelG"
++       class="Label G"
++       x="288.198"
++       y="25.44603"
++       style="text-anchor:start;">G</text>
++  </g>
++  <g
++     id="g14">
++    <path
++       id="ButtonH"
++       class="Button H"
++       d="M 256.67 11.5128 L 252.297 7.14033 C 247.667 12.1516 247.667 19.8808 252.298 24.8916 L 256.67 20.5204 C 254.443 17.9305 254.443 14.1027 256.67 11.5128 Z" />
++    <path
++       id="LeaderH"
++       class="Leader H"
++       d="M 283.198 43.56015 L 251.143 43.56015 L 251.069 19.5457" />
++    <text
++       id="LabelH"
++       class="Label H"
++       x="288.198"
++       y="43.77971"
++       style="text-anchor:start;">H</text>
++  </g>
++  <g
++     id="g15">
++    <path
++       id="ButtonJ"
++       class="Button J ModeSwitch"
++       d="M 261.865 10.6558 C 259.694 10.6558 257.737 11.9635 256.906 13.9692 C 256.075 15.9749 256.535 18.2835 258.07 19.8186 C 259.605 21.3537 261.914 21.8129 263.919 20.9821 C 265.925 20.1514 267.233 18.1942 267.233 16.0233 C 267.233 14.5997 266.667 13.2345 265.661 12.2279 C 264.654 11.2213 263.289 10.6558 261.865 10.6558 Z" />
++    <path
++       id="LeaderJ"
++       class="Leader J ModeSwitch"
++       d="M 283.198 34.39331 L 261.939 34.39331 L 261.865 19.546" />
++    <text
++       id="LabelJ"
++       class="Label J ModeSwitch"
++       x="288.198"
++       y="34.61287"
++       style="text-anchor:start;">J</text>
++  </g>
++  <g
++     id="g17">
++    <path
++       id="Dial2CCW"
++       class="Dial2CCW Dial2 Button"
++       d="M 227.31 5.92916 L 229.557 4.82868 L 229.557 5.56234 C 230.9 5.47807 232.229 5.86856 233.302 6.6628 C 232.155 6.05373 230.805 5.92156 229.557 6.29598 L 229.557 7.02962 Z" />
++    <path
++       id="LeaderDial2CCW"
++       class="Dial2CCW Dial2 Leader"
++       d="M 225.28 6.93851 L 211.034 6.93851" />
++    <text
++       id="LabelDial2CCW"
++       class="Dial2CCW Dial2 Label"
++       x="206.034"
++       y="7.2452002"
++       style="text-anchor:end;">CCW</text>
++    <path
++       id="Dial2CW"
++       class="Dial2CW Button"
++       d="M 227.308 26.4712 L 229.555 25.3708 L 229.555 26.1044 C 230.853 26.2958 232.178 26.0362 233.3 25.3708 C 232.327 26.3672 230.962 26.9023 229.555 26.838 L 229.555 27.5717 Z" />
++    <path
++       id="LeaderDial2CW"
++       class="Dial2CW Dial2 Leader"
++       d="M 225.28 25.0934 L 211.034 25.0934" />
++    <text
++       id="LabelDial2CW"
++       class="Dial2CW Dial2 Label"
++       x="206.034"
++       y="25.457001"
++       style="text-anchor:end;">CW</text>
++    <path
++       id="Dial2"
++       class="Dial2 TouchDial"
++       d="M 230.279 3.05324 C 225.033 3.05324 220.304 6.21328 218.296 11.0598 C 216.289 15.9064 217.398 21.485 221.108 25.1944 C 224.817 28.9038 230.396 30.0134 235.242 28.0059 C 240.089 25.9984 243.249 21.2691 243.249 16.0232 C 243.249 8.86011 237.442 3.05324 230.279 3.05324 Z" />
++  </g>
++</svg>
+diff --git ./data/layouts/wacom-intuos-pro-3-m.svg ../data/layouts/wacom-intuos-pro-3-m.svg
+new file mode 100644
+index 000000000000..ac3af53affd8
+--- /dev/null
++++ ../data/layouts/wacom-intuos-pro-3-m.svg
+@@ -0,0 +1,255 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++
++<svg
++   width="291mm"
++   height="205mm"
++   viewBox="0 0 291 205"
++   version="1.1"
++   id="intuos-pro-m-ptk670"
++   style="fill:none;stroke:#7f7f7f;stroke-width:0.25;font-size:6;font-family:monospace"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:svg="http://www.w3.org/2000/svg">
++  <title
++     id="title">Wacom Intuos Pro M (PTK670)</title>
++  <g
++     id="g1">
++    <path
++       id="ButtonA"
++       class="Button A"
++       d="M 81.0475 6.4004 C 76.0377 1.76944 68.3093 1.76813 63.2977 6.3974 L 67.6702 10.7699 C 70.2604 8.54602 74.0865 8.5473 76.6753 10.7729 Z" />
++    <path
++       id="LeaderA"
++       class="Leader A"
++       d="M 50.8345 6.89279 L 67.0815 6.89279" />
++    <text
++       id="LabelA"
++       class="Label A"
++       x="45.8345"
++       y="7.11235"
++       style="text-anchor:end;">A</text>
++  </g>
++  <g
++     id="g2">
++    <path
++       id="ButtonB"
++       class="Button B"
++       d="M 77.372 20.4721 L 81.7585 24.8587 C 86.4055 19.8443 86.4065 12.0967 81.7595 7.08171 L 77.3717 11.4696 C 79.5949 14.0587 79.5949 17.8831 77.3717 20.4721 Z" />
++    <path
++       id="LeaderB"
++       class="Leader B"
++       d="M 50.8345 43.56015 L 83.0385 43.56015 L 82.9645 19.5" />
++    <text
++       id="LabelB"
++       class="Label B"
++       x="45.8345"
++       y="43.77971"
++       style="text-anchor:end;">B</text>
++  </g>
++  <g
++     id="g3">
++    <path
++       id="ButtonC"
++       class="Button C"
++       d="M 67.6483 21.1934 L 63.2836 25.5581 C 68.2992 30.2049 76.0478 30.2035 81.0615 25.5551 L 76.6971 21.1904 C 74.1009 23.4409 70.2455 23.4417 67.6483 21.1924 Z" />
++    <path
++       id="LeaderC"
++       class="Leader C"
++       d="M 50.8345 25.22647 L 67.0815 25.22647" />
++    <text
++       id="LabelC"
++       class="Label C"
++       x="45.8345"
++       y="25.44603"
++       style="text-anchor:end;">C</text>
++  </g>
++  <g
++     id="g4">
++    <path
++       id="ButtonD"
++       class="Button D"
++       d="M 66.9734 11.4671 L 62.6009 7.09461 C 57.9703 12.1059 57.9707 19.8351 62.6019 24.8459 L 66.9731 20.4747 C 64.7469 17.8848 64.7469 14.057 66.9732 11.4671 Z" />
++    <path
++       id="LeaderD"
++       class="Leader D"
++       d="M 50.8345 16.05963 L 61.4645 16.05963" />
++    <text
++       id="LabelD"
++       class="Label D"
++       x="45.8345"
++       y="16.27919"
++       style="text-anchor:end;">D</text>
++  </g>
++  <g
++     id="g5">
++    <path
++       id="ButtonI"
++       class="Button I ModeSwitch"
++       d="M 72.1687 10.6101 C 69.9978 10.6101 68.0406 11.9178 67.2098 13.9235 C 66.379 15.9292 66.8382 18.2378 68.3733 19.7729 C 69.9084 21.308 72.2171 21.7672 74.2227 20.9364 C 76.2284 20.1057 77.5362 18.1485 77.5362 15.9776 C 77.5362 14.554 76.9707 13.1888 75.9641 12.1822 C 74.9575 11.1756 73.5922 10.6101 72.1687 10.6101 Z" />
++    <path
++       id="LeaderI"
++       class="Leader I ModeSwitch"
++       d="M 50.8345 34.39331 L 72.2426 34.39331 L 72.1686 19.5003" />
++    <text
++       id="LabelI"
++       class="Label I ModeSwitch"
++       x="45.8345"
++       y="34.61287"
++       style="text-anchor:end;">I</text>
++  </g>
++  <g
++     id="g7">
++    <path
++       id="DialCCW"
++       class="DialCCW Button"
++       d="M 101.014 5.88344 L 103.261 4.78296 L 103.261 5.51662 C 104.604 5.43235 105.933 5.82284 107.006 6.61708 C 105.859 6.00801 104.509 5.87584 103.261 6.25026 L 103.261 6.9839 Z" />
++    <path
++       id="LeaderDialCCW"
++       class="DialCCW Dial Leader"
++       d="M 108.982 6.89279 L 123.228 6.89279" />
++    <text
++       id="LabelDialCCW"
++       class="DialCCW Dial Label"
++       x="128.228"
++       y="7.2452002"
++       style="text-anchor:start;">CCW</text>
++    <path
++       id="DialCW"
++       class="DialCW Button"
++       d="M 101.012 26.4255 L 103.259 25.3251 L 103.259 26.0587 C 104.557 26.2501 105.882 25.9905 107.004 25.3251 C 106.031 26.3215 104.666 26.8566 103.259 26.7923 L 103.259 27.526 Z" />
++    <path
++       id="LeaderDialCW"
++       class="DialCW Dial Leader"
++       d="M 108.982 25.0477 L 123.228 25.0477" />
++    <text
++       id="LabelDialCW"
++       class="DialCW Dial Label"
++       x="128.228"
++       y="25.45682"
++       style="text-anchor:start;">CW</text>
++    <path
++       id="Dial"
++       class="Dial TouchDial"
++       d="M 103.983 3.00752 C 98.7365 3.00752 94.0075 6.16756 91.9995 11.0141 C 89.9925 15.8607 91.1015 21.4393 94.8115 25.1487 C 98.5205 28.8581 104.099 29.9677 108.946 27.9602 C 113.793 25.9527 116.953 21.2234 116.953 15.9775 C 116.953 8.81439 111.146 3.00752 103.983 3.00752 Z" />
++  </g>
++  <g
++     id="g11">
++    <path
++       id="ButtonE"
++       class="Button E"
++       d="M 227.873 6.44612 C 222.863 1.81516 215.135 1.81385 210.123 6.44312 L 214.496 10.8156 C 217.086 8.59174 220.912 8.59302 223.501 10.8186 Z" />
++    <path
++       id="LeaderE"
++       class="Leader E"
++       d="M 240.327 6.93851 L 224.081 6.93851" />
++    <text
++       id="LabelE"
++       class="Label E"
++       x="245.327"
++       y="7.11235"
++       style="text-anchor:start;">E</text>
++  </g>
++  <g
++     id="g12">
++    <path
++       id="ButtonF"
++       class="Button F"
++       d="M 224.197 20.5178 L 228.584 24.9044 C 233.231 19.89 233.232 12.1424 228.585 7.12743 L 224.197 11.5153 C 226.42 14.1044 226.42 17.9288 224.197 20.5178 Z" />
++    <path
++       id="LeaderF"
++       class="Leader F"
++       d="M 240.327 16.05963 L 229.698 16.05963" />
++    <text
++       id="LabelF"
++       class="Label F"
++       x="245.327"
++       y="16.27919"
++       style="text-anchor:start;">F</text>
++  </g>
++  <g
++     id="g13">
++    <path
++       id="ButtonG"
++       class="Button G"
++       d="M 214.474 21.2391 L 210.109 25.6038 C 215.125 30.2506 222.873 30.2492 227.887 25.6008 L 223.523 21.2361 C 220.926 23.4866 217.071 23.4874 214.474 21.2381 Z" />
++    <path
++       id="LeaderG"
++       class="Leader G"
++       d="M 240.327 25.22647 L 224.081 25.22647" />
++    <text
++       id="LabelG"
++       class="Label G"
++       x="245.327"
++       y="25.44603"
++       style="text-anchor:start;">G</text>
++  </g>
++  <g
++     id="g14">
++    <path
++       id="ButtonH"
++       class="Button H"
++       d="M 213.799 11.5128 L 209.426 7.14033 C 204.796 12.1516 204.796 19.8808 209.427 24.8916 L 213.799 20.5204 C 211.572 17.9305 211.572 14.1027 213.799 11.5128 Z" />
++    <path
++       id="LeaderH"
++       class="Leader H"
++       d="M 240.327 43.56015 L 208.272 43.56015 L 208.198 19.5457" />
++    <text
++       id="LabelH"
++       class="Label H"
++       x="245.327"
++       y="43.77971"
++       style="text-anchor:start;">H</text>
++  </g>
++  <g
++     id="g15">
++    <path
++       id="ButtonJ"
++       class="Button J ModeSwitch"
++       d="M 218.994 10.6558 C 216.823 10.6558 214.866 11.9635 214.035 13.9692 C 213.204 15.9749 213.664 18.2835 215.199 19.8186 C 216.734 21.3537 219.043 21.8129 221.048 20.9821 C 223.054 20.1514 224.362 18.1942 224.362 16.0233 C 224.362 14.5997 223.796 13.2345 222.79 12.2279 C 221.783 11.2213 220.418 10.6558 218.994 10.6558 Z" />
++    <path
++       id="LeaderJ"
++       class="Leader J ModeSwitch"
++       d="M 240.327 34.39331 L 219.068 34.39331 L 218.994 19.546" />
++    <text
++       id="LabelJ"
++       class="Label J ModeSwitch"
++       x="245.327"
++       y="34.61287"
++       style="text-anchor:start;">J</text>
++  </g>
++  <g
++     id="g17">
++    <path
++       id="Dial2CCW"
++       class="Dial2CCW Button"
++       d="M 184.439 5.92916 L 186.686 4.82868 L 186.686 5.56234 C 188.029 5.47807 189.358 5.86856 190.431 6.6628 C 189.284 6.05373 187.934 5.92156 186.686 6.29598 L 186.686 7.02962 Z" />
++    <path
++       id="LeaderDial2CCW"
++       class="Dial2CCW Dial2 Leader"
++       d="M 182.409 6.93851 L 168.163 6.93851" />
++    <text
++       id="LabelDial2CCW"
++       class="Dial2CCW Dial2 Label"
++       x="163.163"
++       y="7.2452002"
++       style="text-anchor:end;">CCW</text>
++    <path
++       id="Dial2CW"
++       class="Dial2CW Button"
++       d="M 184.437 26.4712 L 186.684 25.3708 L 186.684 26.1044 C 187.982 26.2958 189.307 26.0362 190.429 25.3708 C 189.456 26.3672 188.091 26.9023 186.684 26.838 L 186.684 27.5717 Z" />
++    <path
++       id="LeaderDial2CW"
++       class="Dial2CW Dial2 Leader"
++       d="M 182.409 25.0934 L 168.163 25.0934" />
++    <text
++       id="LabelDial2CW"
++       class="Dial2CW Dial2 Label"
++       x="163.163"
++       y="25.457001"
++       style="text-anchor:end;">CW</text>
++    <path
++       id="Dial2"
++       class="Dial2 TouchDial"
++       d="M 187.408 3.05324 C 182.162 3.05324 177.433 6.21328 175.425 11.0598 C 173.418 15.9064 174.527 21.485 178.237 25.1944 C 181.946 28.9038 187.525 30.0134 192.371 28.0059 C 197.218 25.9984 200.378 21.2691 200.378 16.0232 C 200.378 8.86011 194.571 3.05324 187.408 3.05324 Z" />
++  </g>
++</svg>
+diff --git ./data/layouts/wacom-intuos-pro-3-s.svg ../data/layouts/wacom-intuos-pro-3-s.svg
+new file mode 100644
+index 000000000000..ac0e3004d257
+--- /dev/null
++++ ../data/layouts/wacom-intuos-pro-3-s.svg
+@@ -0,0 +1,135 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++
++<svg
++   width="215mm"
++   height="162mm"
++   viewBox="0 0 215 162"
++   version="1.1"
++   id="intuos-pro-s-ptk470"
++   style="fill:none;stroke:#7f7f7f;stroke-width:0.25;font-size:6;font-family:monospace"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:svg="http://www.w3.org/2000/svg">
++  <title
++     id="title">Wacom Intuos Pro S (PTK470)</title>
++  <g
++     id="g1">
++    <path
++       id="ButtonA"
++       class="Button A"
++       d="M 100.597 6.4004 C 95.5872 1.76944 87.8588 1.76813 82.8472 6.3974 L 87.2197 10.7699 C 89.8099 8.54602 93.636 8.5473 96.2248 10.7729 Z" />
++    <path
++       id="LeaderA"
++       class="Leader A"
++       d="M 70.384,6.89279 H 86.631" />
++    <text
++       id="LabelA"
++       class="Label A"
++       x="65.384"
++       y="7.11235"
++       style="text-anchor:end;">A</text>
++  </g>
++  <g
++     id="g2">
++    <path
++       id="ButtonB"
++       class="Button B"
++       d="M 96.9215 20.4721 L 101.308 24.8587 C 105.955 19.8443 105.956 12.0967 101.309 7.08171 L 96.9212 11.4696 C 99.1444 14.0587 99.1444 17.8831 96.9212 20.4721 Z" />
++    <path
++       id="LeaderB"
++       class="Leader B"
++       d="m 70.384,43.56015 h 32.204 L 102.514,19.5" />
++    <text
++       id="LabelB"
++       class="Label B"
++       x="65.384"
++       y="43.77971"
++       style="text-anchor:end;">B</text>
++  </g>
++  <g
++     id="g3">
++    <path
++       id="ButtonC"
++       class="Button C"
++       d="M 87.1978 21.1934 L 82.8331 25.5581 C 87.8487 30.2049 95.5973 30.2035 100.611 25.5551 L 96.2466 21.1904 C 93.6504 23.4409 89.795 23.4417 87.1978 21.1924 Z" />
++    <path
++       id="LeaderC"
++       class="Leader C"
++       d="M 70.384,25.22647 H 86.631" />
++    <text
++       id="LabelC"
++       class="C Label"
++       x="65.384"
++       y="25.44603"
++       style="text-anchor:end;">C</text>
++  </g>
++  <g
++     id="g4">
++    <path
++       id="ButtonD"
++       class="Button D"
++       d="M 86.5229 11.4671 L 82.1504 7.09461 C 77.5198 12.1059 77.5202 19.8351 82.1514 24.8459 L 86.5226 20.4747 C 84.2964 17.8848 84.2964 14.057 86.5227 11.4671 Z" />
++    <path
++       id="LeaderD"
++       class="Leader D"
++       d="M 70.384,16.05963 H 81.014" />
++    <text
++       id="LabelD"
++       class="Label D"
++       x="65.384"
++       y="16.27919"
++       style="text-anchor:end;">D</text>
++  </g>
++  <g
++     id="g5">
++    <path
++       id="ButtonE"
++       class="Button E ModeSwitch"
++       d="M 91.7182 10.6101 C 89.5473 10.6101 87.5901 11.9178 86.7593 13.9235 C 85.9285 15.9292 86.3877 18.2378 87.9228 19.7729 C 89.4579 21.308 91.7666 21.7672 93.7722 20.9364 C 95.7779 20.1057 97.0857 18.1485 97.0857 15.9776 C 97.0857 14.554 96.5202 13.1888 95.5136 12.1822 C 94.507 11.1756 93.1417 10.6101 91.7182 10.6101 Z" />
++    <path
++       id="LeaderE"
++       class="Leader E ModeSwitch"
++       d="M 70.384 34.39331 L 91.7921 34.39331 L 91.7181 19.5003" />
++    <text
++       id="LabelE"
++       class="Label E ModeSwitch"
++       x="65.384"
++       y="34.61287"
++       style="text-anchor:end;">E</text>
++  </g>
++  <g
++     id="g7">
++    <path
++       id="DialCCW"
++       class="DialCCW Button"
++       d="M 120.563 5.88344 L 122.81 4.78296 L 122.81 5.51662 C 124.153 5.43235 125.482 5.82284 126.555 6.61708 C 125.408 6.00801 124.058 5.87584 122.81 6.25026 L 122.81 6.9839 Z" />
++    <path
++       id="LeaderDialCCW"
++       class="DialCCW Dial Leader"
++       d="m 128.531,6.89279 h 14.246" />
++    <text
++       id="LabelDialCCW"
++       class="DialCCW Dial Label"
++       x="147.777"
++       y="7.2452"
++       style="text-anchor:start;">CCW</text>
++    <path
++       id="DialCW"
++       class="DialCW Button"
++       d="M 120.561 26.4255 L 122.808 25.3251 L 122.808 26.0587 C 124.106 26.2501 125.431 25.9905 126.553 25.3251 C 125.58 26.3215 124.215 26.8566 122.808 26.7923 L 122.808 27.526 Z" />
++    <path
++       id="LeaderDialCW"
++       class="DialCW Dial Leader"
++       d="m 128.531,25.0477 h 14.246" />
++    <text
++       id="LabelDialCW"
++       class="DialCW Dial Label"
++       x="147.777"
++       y="25.45682"
++       style="text-anchor:start;">CW</text>
++    <path
++       id="Dial"
++       class="Dial TouchDial"
++       d="M 123.532 3.00752 C 118.286 3.00752 113.557 6.16756 111.549 11.0141 C 109.542 15.8607 110.651 21.4393 114.361 25.1487 C 118.07 28.8581 123.649 29.9677 128.495 27.9602 C 133.342 25.9527 136.502 21.2234 136.502 15.9775 C 136.502 8.81439 130.695 3.00752 123.532 3.00752 Z" />
++  </g>
++</svg>
+diff --git ./data/wacom-intuos-pro-3-l.tablet ../data/wacom-intuos-pro-3-l.tablet
+new file mode 100644
+index 000000000000..0f3c27c502b2
+--- /dev/null
++++ ../data/wacom-intuos-pro-3-l.tablet
+@@ -0,0 +1,57 @@
++# Wacom
++# Intuos Pro L
++# PTK870
++# (Third Generation)
++#
++# sysinfo.oLBtuiyfKd
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/457#issue-2867134599
++#
++# Button Map:
++# (A=1, B=2, C=3, ...)
++#
++#        A               E
++#      D I B           H J F
++#        C               G
++#    *-----------------------*
++#    |                       |
++#    |                       |
++#    |        TABLET         |
++#    |                       |
++#    |                       |
++#    *-----------------------*
++#
++# Relative Dial Map:
++# (A=1st dial, B=2nd dial, ...)
++#
++#            A      B
++#    *-----------------------*
++#    |                       |
++#    |        TABLET         |
++#    |                       |
++#    *-----------------------*
++#
++
++[Device]
++Name=Wacom Intuos Pro L
++ModelName=PTK870
++DeviceMatch=usb|056a|03f9;bluetooth|056a|03fa;usb|056a|0401;
++Class=Intuos5
++Width=14
++Height=8
++Layout=wacom-intuos-pro-3-l.svg
++IntegratedIn=
++Styli=@mobilestudio;@propengen2;@propen3;@udpen;
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=false
++NumDials=2
++
++[Buttons]
++Left=A;B;C;D;I
++Right=E;F;G;H;J
++Dial=I
++Dial2=J
++DialNumModes=3
++Dial2NumModes=3
+diff --git ./data/wacom-intuos-pro-3-m.tablet ../data/wacom-intuos-pro-3-m.tablet
+new file mode 100644
+index 000000000000..850532273109
+--- /dev/null
++++ ../data/wacom-intuos-pro-3-m.tablet
+@@ -0,0 +1,57 @@
++# Wacom
++# Intuos Pro M
++# PTK670
++# (Third Generation)
++#
++# sysinfo.BSaGepftZP
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/456#issue-2861784604
++#
++# Button Map:
++# (A=1, B=2, C=3, ...)
++#
++#        A               E
++#      D I B           H J F
++#        C               G
++#    *-----------------------*
++#    |                       |
++#    |                       |
++#    |        TABLET         |
++#    |                       |
++#    |                       |
++#    *-----------------------*
++#
++# Relative Dial Map:
++# (A=1st dial, B=2nd dial, ...)
++#
++#            A      B
++#    *-----------------------*
++#    |                       |
++#    |        TABLET         |
++#    |                       |
++#    *-----------------------*
++#
++
++[Device]
++Name=Wacom Intuos Pro M
++ModelName=PTK670
++DeviceMatch=usb|056a|03f7;bluetooth|056a|03f8;
++Class=Intuos5
++Width=10
++Height=6
++Layout=wacom-intuos-pro-3-m.svg
++IntegratedIn=
++Styli=@mobilestudio;@propengen2;@propen3;@udpen;
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=false
++NumDials=2
++
++[Buttons]
++Left=A;B;C;D;I
++Right=E;F;G;H;J
++Dial=I
++Dial2=J
++DialNumModes=3
++Dial2NumModes=3
+diff --git ./data/wacom-intuos-pro-3-s.tablet ../data/wacom-intuos-pro-3-s.tablet
+new file mode 100644
+index 000000000000..cb1210aacf31
+--- /dev/null
++++ ../data/wacom-intuos-pro-3-s.tablet
+@@ -0,0 +1,54 @@
++# Wacom
++# Intuos Pro S
++# PTK470
++# (Third Generation)
++#
++# sysinfo.vS9sFVLdTW
++# https://github.com/linuxwacom/wacom-hid-descriptors/issues/455#issue-2861784074
++#
++# Button Map:
++# (A=1, B=2, C=3, ...)
++#
++#        A
++#      D E B
++#        C
++#    *-----------------------*
++#    |                       |
++#    |                       |
++#    |        TABLET         |
++#    |                       |
++#    |                       |
++#    *-----------------------*
++#
++# Relative Dial Map:
++# (A=1st dial, B=2nd dial, ...)
++#
++#            A
++#    *-----------------------*
++#    |                       |
++#    |        TABLET         |
++#    |                       |
++#    *-----------------------*
++#
++
++[Device]
++Name=Wacom Intuos Pro S
++ModelName=PTK470
++DeviceMatch=usb|056a|03f5;bluetooth|056a|03f6;
++Class=Intuos5
++Width=7
++Height=4
++Layout=wacom-intuos-pro-3-s.svg
++IntegratedIn=
++Styli=@mobilestudio;@propengen2;@propen3;@udpen;
++
++[Features]
++Stylus=true
++Reversible=false
++Touch=false
++NumDials=1
++
++[Buttons]
++Left=A;B;C;D;E
++Dial=E
++DialNumModes=3
+-- 
+2.50.1
+

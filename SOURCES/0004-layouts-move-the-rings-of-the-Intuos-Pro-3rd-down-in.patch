@@ -1,0 +1,136 @@
+From eac68337e0c9e41b58b6a1a8e9016652251b0f4c Mon Sep 17 00:00:00 2001
+From: Peter Hutterer <peter.hutterer@who-t.net>
+Date: Thu, 21 Aug 2025 16:00:29 +1000
+Subject: [PATCH libwacom] layouts: move the rings of the Intuos Pro 3rd down
+ in their group
+
+This way a caller that fills the ring with color doesn't obscure
+anything else in this group (notably: the arrows).
+---
+ data/layouts/wacom-intuos-pro-3-l.svg | 16 ++++++++--------
+ data/layouts/wacom-intuos-pro-3-m.svg | 16 ++++++++--------
+ data/layouts/wacom-intuos-pro-3-s.svg |  8 ++++----
+ 3 files changed, 20 insertions(+), 20 deletions(-)
+
+diff --git a/data/layouts/wacom-intuos-pro-3-l.svg b/data/layouts/wacom-intuos-pro-3-l.svg
+index 925149cea6a1..2bd1a1abfab7 100644
+--- a/data/layouts/wacom-intuos-pro-3-l.svg
++++ b/data/layouts/wacom-intuos-pro-3-l.svg
+@@ -162,6 +162,10 @@
+      style="text-anchor:end">I</text>
+   <g
+      id="g7">
++    <path
++       id="Dial"
++       class="Dial TouchDial"
++       d="M 146.854 3.00752 C 141.607 3.00752 136.878 6.16756 134.87 11.0141 C 132.863 15.8607 133.972 21.4393 137.682 25.1487 C 141.391 28.8581 146.97 29.9677 151.817 27.9602 C 156.664 25.9527 159.824 21.2234 159.824 15.9775 C 159.824 8.81439 154.017 3.00752 146.854 3.00752 Z" />
+     <path
+        id="DialCCW"
+        class="DialCCW Button"
+@@ -190,10 +194,6 @@
+        x="171.099"
+        y="25.45682"
+        style="text-anchor:start;">CW</text>
+-    <path
+-       id="Dial"
+-       class="Dial TouchDial"
+-       d="M 146.854 3.00752 C 141.607 3.00752 136.878 6.16756 134.87 11.0141 C 132.863 15.8607 133.972 21.4393 137.682 25.1487 C 141.391 28.8581 146.97 29.9677 151.817 27.9602 C 156.664 25.9527 159.824 21.2234 159.824 15.9775 C 159.824 8.81439 154.017 3.00752 146.854 3.00752 Z" />
+   </g>
+   <path
+      id="ButtonE"
+@@ -272,6 +272,10 @@
+      style="text-anchor:start">J</text>
+   <g
+      id="g17">
++    <path
++       id="Dial2"
++       class="Dial2 TouchDial"
++       d="M 230.279 3.05324 C 225.033 3.05324 220.304 6.21328 218.296 11.0598 C 216.289 15.9064 217.398 21.485 221.108 25.1944 C 224.817 28.9038 230.396 30.0134 235.242 28.0059 C 240.089 25.9984 243.249 21.2691 243.249 16.0232 C 243.249 8.86011 237.442 3.05324 230.279 3.05324 Z" />
+     <path
+        id="Dial2CCW"
+        class="Dial2CCW Dial2 Button"
+@@ -300,9 +304,5 @@
+        x="206.034"
+        y="25.457001"
+        style="text-anchor:end;">CW</text>
+-    <path
+-       id="Dial2"
+-       class="Dial2 TouchDial"
+-       d="M 230.279 3.05324 C 225.033 3.05324 220.304 6.21328 218.296 11.0598 C 216.289 15.9064 217.398 21.485 221.108 25.1944 C 224.817 28.9038 230.396 30.0134 235.242 28.0059 C 240.089 25.9984 243.249 21.2691 243.249 16.0232 C 243.249 8.86011 237.442 3.05324 230.279 3.05324 Z" />
+   </g>
+ </svg>
+diff --git a/data/layouts/wacom-intuos-pro-3-m.svg b/data/layouts/wacom-intuos-pro-3-m.svg
+index ab3ba59e5abc..ac1e4804d475 100644
+--- a/data/layouts/wacom-intuos-pro-3-m.svg
++++ b/data/layouts/wacom-intuos-pro-3-m.svg
+@@ -126,6 +126,10 @@
+      id="g7"
+      style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+      transform="translate(-43.414111,-7.5157166e-5)">
++    <path
++       id="Dial"
++       class="Dial TouchDial"
++       d="m 146.854,3.00752 c -5.247,0 -9.976,3.16004 -11.984,8.00658 -2.007,4.8466 -0.898,10.4252 2.812,14.1346 3.709,3.7094 9.288,4.819 14.135,2.8115 4.847,-2.0075 8.007,-6.7368 8.007,-11.9827 0,-7.16311 -5.807,-12.96998 -12.97,-12.96998 z" />
+     <path
+        id="DialCCW"
+        class="DialCCW Button"
+@@ -154,10 +158,6 @@
+        x="171.099"
+        y="25.45682"
+        style="text-anchor:start">CW</text>
+-    <path
+-       id="Dial"
+-       class="Dial TouchDial"
+-       d="m 146.854,3.00752 c -5.247,0 -9.976,3.16004 -11.984,8.00658 -2.007,4.8466 -0.898,10.4252 2.812,14.1346 3.709,3.7094 9.288,4.819 14.135,2.8115 4.847,-2.0075 8.007,-6.7368 8.007,-11.9827 0,-7.16311 -5.807,-12.96998 -12.97,-12.96998 z" />
+   </g>
+   <path
+      id="ButtonE"
+@@ -252,6 +252,10 @@
+      id="g17"
+      style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+      transform="translate(-43.414111,-7.5157166e-5)">
++    <path
++       id="Dial2"
++       class="Dial2 TouchDial"
++       d="m 230.279,3.05324 c -5.246,0 -9.975,3.16004 -11.983,8.00656 -2.007,4.8466 -0.898,10.4252 2.812,14.1346 3.709,3.7094 9.288,4.819 14.134,2.8115 4.847,-2.0075 8.007,-6.7368 8.007,-11.9827 0,-7.16309 -5.807,-12.96996 -12.97,-12.96996 z" />
+     <path
+        id="Dial2CCW"
+        class="Dial2CCW Dial2 Button"
+@@ -280,9 +284,5 @@
+        x="206.034"
+        y="25.457001"
+        style="text-anchor:end">CW</text>
+-    <path
+-       id="Dial2"
+-       class="Dial2 TouchDial"
+-       d="m 230.279,3.05324 c -5.246,0 -9.975,3.16004 -11.983,8.00656 -2.007,4.8466 -0.898,10.4252 2.812,14.1346 3.709,3.7094 9.288,4.819 14.134,2.8115 4.847,-2.0075 8.007,-6.7368 8.007,-11.9827 0,-7.16309 -5.807,-12.96996 -12.97,-12.96996 z" />
+   </g>
+ </svg>
+diff --git a/data/layouts/wacom-intuos-pro-3-s.svg b/data/layouts/wacom-intuos-pro-3-s.svg
+index ac0e3004d257..4de7c63bf199 100644
+--- a/data/layouts/wacom-intuos-pro-3-s.svg
++++ b/data/layouts/wacom-intuos-pro-3-s.svg
+@@ -99,6 +99,10 @@
+   </g>
+   <g
+      id="g7">
++    <path
++       id="Dial"
++       class="Dial TouchDial"
++       d="M 123.532 3.00752 C 118.286 3.00752 113.557 6.16756 111.549 11.0141 C 109.542 15.8607 110.651 21.4393 114.361 25.1487 C 118.07 28.8581 123.649 29.9677 128.495 27.9602 C 133.342 25.9527 136.502 21.2234 136.502 15.9775 C 136.502 8.81439 130.695 3.00752 123.532 3.00752 Z" />
+     <path
+        id="DialCCW"
+        class="DialCCW Button"
+@@ -127,9 +131,5 @@
+        x="147.777"
+        y="25.45682"
+        style="text-anchor:start;">CW</text>
+-    <path
+-       id="Dial"
+-       class="Dial TouchDial"
+-       d="M 123.532 3.00752 C 118.286 3.00752 113.557 6.16756 111.549 11.0141 C 109.542 15.8607 110.651 21.4393 114.361 25.1487 C 118.07 28.8581 123.649 29.9677 128.495 27.9602 C 133.342 25.9527 136.502 21.2234 136.502 15.9775 C 136.502 8.81439 130.695 3.00752 123.532 3.00752 Z" />
+   </g>
+ </svg>
+-- 
+2.50.1
+

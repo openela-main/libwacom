@@ -1,4 +1,4 @@
-From 3b1b46f2f1fd462df258893cc3a114f786f16d73 Mon Sep 17 00:00:00 2001
+From eccfb17dded89fbe8260e710686cde1e06a71f77 Mon Sep 17 00:00:00 2001
 From: Peter Hutterer <peter.hutterer@who-t.net>
 Date: Tue, 22 Jul 2025 10:45:59 +1000
 Subject: [PATCH libwacom] RHEL: pretend the Intuos Pro 3rd Gen has Rings, not
@@ -21,114 +21,12 @@ the kernel) to map the relative dial events to absolute events.
  6 files changed, 106 insertions(+), 70 deletions(-)
 
 diff --git a/data/layouts/wacom-intuos-pro-3-l.svg b/data/layouts/wacom-intuos-pro-3-l.svg
-index 2bd1a1abfab7..d000ef02acc8 100644
+index fa5bd6f8d847..8fb5e7792af4 100644
 --- a/data/layouts/wacom-intuos-pro-3-l.svg
 +++ b/data/layouts/wacom-intuos-pro-3-l.svg
-@@ -163,34 +163,34 @@
+@@ -180,36 +180,36 @@
    <g
-      id="g7">
-     <path
--       id="Dial"
--       class="Dial TouchDial"
-+       id="Ring"
-+       class="Ring TouchRing"
-        d="M 146.854 3.00752 C 141.607 3.00752 136.878 6.16756 134.87 11.0141 C 132.863 15.8607 133.972 21.4393 137.682 25.1487 C 141.391 28.8581 146.97 29.9677 151.817 27.9602 C 156.664 25.9527 159.824 21.2234 159.824 15.9775 C 159.824 8.81439 154.017 3.00752 146.854 3.00752 Z" />
-     <path
--       id="DialCCW"
--       class="DialCCW Button"
-+       id="RingCCW"
-+       class="RingCCW Button"
-        d="M 143.885 5.88344 L 146.132 4.78296 L 146.132 5.51662 C 147.475 5.43235 148.804 5.82284 149.877 6.61708 C 148.73 6.00801 147.38 5.87584 146.132 6.25026 L 146.132 6.9839 Z" />
-     <path
--       id="LeaderDialCCW"
--       class="DialCCW Dial Leader"
-+       id="LeaderRingCCW"
-+       class="RingCCW Ring Leader"
-        d="M 151.853 6.89279 L 166.099 6.89279" />
-     <text
--       id="LabelDialCCW"
--       class="DialCCW Dial Label"
-+       id="LabelRingCCW"
-+       class="RingCCW Ring Label"
-        x="171.099"
-        y="7.2452002"
-        style="text-anchor:start;">CCW</text>
-     <path
--       id="DialCW"
--       class="DialCW Button"
-+       id="RingCW"
-+       class="RingCW Button"
-        d="M 143.883 26.4255 L 146.13 25.3251 L 146.13 26.0587 C 147.428 26.2501 148.753 25.9905 149.875 25.3251 C 148.902 26.3215 147.537 26.8566 146.13 26.7923 L 146.13 27.526 Z" />
-     <path
--       id="LeaderDialCW"
--       class="DialCW Dial Leader"
-+       id="LeaderRingCW"
-+       class="RingCW Ring Leader"
-        d="M 151.853 25.0477 L 166.099 25.0477" />
-     <text
--       id="LabelDialCW"
--       class="DialCW Dial Label"
-+       id="LabelRingCW"
-+       class="RingCW Ring Label"
-        x="171.099"
-        y="25.45682"
-        style="text-anchor:start;">CW</text>
-@@ -273,34 +273,34 @@
-   <g
-      id="g17">
-     <path
--       id="Dial2"
--       class="Dial2 TouchDial"
-+       id="Ring2"
-+       class="Ring2 TouchRing"
-        d="M 230.279 3.05324 C 225.033 3.05324 220.304 6.21328 218.296 11.0598 C 216.289 15.9064 217.398 21.485 221.108 25.1944 C 224.817 28.9038 230.396 30.0134 235.242 28.0059 C 240.089 25.9984 243.249 21.2691 243.249 16.0232 C 243.249 8.86011 237.442 3.05324 230.279 3.05324 Z" />
-     <path
--       id="Dial2CCW"
--       class="Dial2CCW Dial2 Button"
-+       id="Ring2CCW"
-+       class="Ring2CCW Ring2 Button"
-        d="M 227.31 5.92916 L 229.557 4.82868 L 229.557 5.56234 C 230.9 5.47807 232.229 5.86856 233.302 6.6628 C 232.155 6.05373 230.805 5.92156 229.557 6.29598 L 229.557 7.02962 Z" />
-     <path
--       id="LeaderDial2CCW"
--       class="Dial2CCW Dial2 Leader"
-+       id="LeaderRing2CCW"
-+       class="Ring2CCW Ring2 Leader"
-        d="M 225.28 6.93851 L 211.034 6.93851" />
-     <text
--       id="LabelDial2CCW"
--       class="Dial2CCW Dial2 Label"
-+       id="LabelRing2CCW"
-+       class="Ring2CCW Ring2 Label"
-        x="206.034"
-        y="7.2452002"
-        style="text-anchor:end;">CCW</text>
-     <path
--       id="Dial2CW"
--       class="Dial2CW Button"
-+       id="Ring2CW"
-+       class="Ring2CW Button"
-        d="M 227.308 26.4712 L 229.555 25.3708 L 229.555 26.1044 C 230.853 26.2958 232.178 26.0362 233.3 25.3708 C 232.327 26.3672 230.962 26.9023 229.555 26.838 L 229.555 27.5717 Z" />
-     <path
--       id="LeaderDial2CW"
--       class="Dial2CW Dial2 Leader"
-+       id="LeaderRing2CW"
-+       class="Ring2CW Ring2 Leader"
-        d="M 225.28 25.0934 L 211.034 25.0934" />
-     <text
--       id="LabelDial2CW"
--       class="Dial2CW Dial2 Label"
-+       id="LabelRing2CW"
-+       class="Ring2CW Ring2 Label"
-        x="206.034"
-        y="25.457001"
-        style="text-anchor:end;">CW</text>
-diff --git a/data/layouts/wacom-intuos-pro-3-m.svg b/data/layouts/wacom-intuos-pro-3-m.svg
-index ac1e4804d475..5fa321b71b16 100644
---- a/data/layouts/wacom-intuos-pro-3-m.svg
-+++ b/data/layouts/wacom-intuos-pro-3-m.svg
-@@ -127,34 +127,34 @@
-      style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
-      transform="translate(-43.414111,-7.5157166e-5)">
+      id="g19">
      <path
 -       id="Dial"
 -       class="Dial TouchDial"
@@ -146,14 +44,15 @@ index ac1e4804d475..5fa321b71b16 100644
 -       class="DialCCW Dial Leader"
 +       id="LeaderRingCCW"
 +       class="RingCCW Ring Leader"
-        d="m 151.853,6.89279 h 14.246" />
+        d="m 151.99999,6.9999998 h 14"
+        sodipodi:nodetypes="cc" />
      <text
 -       id="LabelDialCCW"
 -       class="DialCCW Dial Label"
 +       id="LabelRingCCW"
 +       class="RingCCW Ring Label"
-        x="171.099"
-        y="7.2452002"
+        x="170.71777"
+        y="7.578125"
         style="text-anchor:start">CCW</text>
      <path
 -       id="DialCW"
@@ -166,18 +65,19 @@ index ac1e4804d475..5fa321b71b16 100644
 -       class="DialCW Dial Leader"
 +       id="LeaderRingCW"
 +       class="RingCW Ring Leader"
-        d="m 151.853,25.0477 h 14.246" />
+        d="m 151.99999,24.999999 h 10 V 16 h 4"
+        sodipodi:nodetypes="cccc" />
      <text
 -       id="LabelDialCW"
 -       class="DialCW Dial Label"
 +       id="LabelRingCW"
 +       class="RingCW Ring Label"
-        x="171.099"
-        y="25.45682"
+        x="170.71777"
+        y="16.578125"
         style="text-anchor:start">CW</text>
-@@ -253,34 +253,34 @@
-      style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
-      transform="translate(-43.414111,-7.5157166e-5)">
+@@ -292,38 +292,38 @@
+   <g
+      id="g20">
      <path
 -       id="Dial2"
 -       class="Dial2 TouchDial"
@@ -190,19 +90,13 @@ index ac1e4804d475..5fa321b71b16 100644
 +       id="Ring2CCW"
 +       class="Ring2CCW Ring2 Button"
         d="m 227.31,5.92916 2.247,-1.10048 v 0.73366 c 1.343,-0.08427 2.672,0.30622 3.745,1.10046 -1.147,-0.60907 -2.497,-0.74124 -3.745,-0.36682 v 0.73364 z" />
-     <path
--       id="LeaderDial2CCW"
--       class="Dial2CCW Dial2 Leader"
-+       id="LeaderRing2CCW"
-+       class="Ring2CCW Ring2 Leader"
-        d="M 225.28,6.93851 H 211.034" />
      <text
 -       id="LabelDial2CCW"
 -       class="Dial2CCW Dial2 Label"
 +       id="LabelRing2CCW"
 +       class="Ring2CCW Ring2 Label"
-        x="206.034"
-        y="7.2452002"
+        x="205.55469"
+        y="25.578125"
         style="text-anchor:end">CCW</text>
      <path
 -       id="Dial2CW"
@@ -210,20 +104,149 @@ index ac1e4804d475..5fa321b71b16 100644
 +       id="Ring2CW"
 +       class="Ring2CW Button"
         d="m 227.308,26.4712 2.247,-1.1004 v 0.7336 c 1.298,0.1914 2.623,-0.0682 3.745,-0.7336 -0.973,0.9964 -2.338,1.5315 -3.745,1.4672 v 0.7337 z" />
-     <path
--       id="LeaderDial2CW"
--       class="Dial2CW Dial2 Leader"
-+       id="LeaderRing2CW"
-+       class="Ring2CW Ring2 Leader"
-        d="M 225.28,25.0934 H 211.034" />
      <text
 -       id="LabelDial2CW"
 -       class="Dial2CW Dial2 Label"
 +       id="LabelRing2CW"
 +       class="Ring2CW Ring2 Label"
-        x="206.034"
-        y="25.457001"
+        x="201.94238"
+        y="34.578125"
         style="text-anchor:end">CW</text>
+     <path
+-       id="LeaderDial2CCW"
+-       class="Dial2CCW Dial2 Leader"
++       id="LeaderRing2CCW"
++       class="Ring2CCW Ring2 Leader"
+        d="m 224.99999,6.9999998 h -12 l 0,17.9999992 h -2"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="cccc" />
+     <path
+-       id="LeaderDial2CW"
+-       class="Dial2CW Dial2 Leader"
++       id="LeaderRing2CW"
++       class="Ring2CW Ring2 Leader"
+        d="m 224.99999,25.093398 -8,-0.03262 v 8.939222 h -6"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="cccc" />
+diff --git a/data/layouts/wacom-intuos-pro-3-m.svg b/data/layouts/wacom-intuos-pro-3-m.svg
+index 32e776bcfb5e..2c8e1c08923f 100644
+--- a/data/layouts/wacom-intuos-pro-3-m.svg
++++ b/data/layouts/wacom-intuos-pro-3-m.svg
+@@ -155,44 +155,44 @@
+   <g
+      id="g2">
+     <path
+-       id="Dial"
+-       class="Dial TouchDial"
++       id="Ring"
++       class="Ring TouchRing"
+        d="m 103.43989,3.0074448 c -5.247001,0 -9.976001,3.16004 -11.984001,8.0065802 -2.007,4.8466 -0.898,10.4252 2.812,14.1346 3.709,3.7094 9.288001,4.819 14.135001,2.8115 4.847,-2.0075 8.007,-6.7368 8.007,-11.9827 0,-7.1631102 -5.807,-12.9699802 -12.97,-12.9699802 z"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="sccsss" />
+     <path
+-       id="DialCCW"
+-       class="DialCCW Button"
++       id="RingCCW"
++       class="RingCCW Button"
+        d="m 100.47089,5.8833648 2.247,-1.10048 v 0.73366 c 1.343,-0.08427 2.672,0.30622 3.745,1.10046 -1.147,-0.60907 -2.497,-0.74124 -3.745,-0.36682 v 0.73364 z"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="ccccccc" />
+     <path
+-       id="LeaderDialCCW"
+-       class="DialCCW Dial Leader"
++       id="LeaderRingCCW"
++       class="RingCCW Ring Leader"
+        d="m 109,7.0000001 h 14"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="cc" />
+     <text
+-       id="LabelDialCCW"
+-       class="DialCCW Dial Label"
++       id="LabelRingCCW"
++       class="RingCCW Ring Label"
+        x="127.71777"
+        y="7.578125"
+        style="font-size:6px;font-family:monospace;text-anchor:start;fill:none;stroke:#7f7f7f;stroke-width:0.25">CCW</text>
+     <path
+-       id="DialCW"
+-       class="DialCW Button"
++       id="RingCW"
++       class="RingCW Button"
+        d="m 100.46889,26.425425 2.247,-1.1004 v 0.7336 c 1.298,0.1914 2.623,-0.0682 3.745,-0.7336 -0.973,0.9964 -2.338,1.5315 -3.745,1.4672 v 0.7337 z"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="ccccccc" />
+     <path
+-       id="LeaderDialCW"
+-       class="DialCW Dial Leader"
++       id="LeaderRingCW"
++       class="RingCW Ring Leader"
+        d="m 108,26 10,0 0,-11 h 5"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="cccc" />
+     <text
+-       id="LabelDialCW"
+-       class="DialCW Dial Label"
++       id="LabelRingCW"
++       class="RingCW Ring Label"
+        x="127.71777"
+        y="15.578125"
+        style="font-size:6px;font-family:monospace;text-anchor:start;fill:none;stroke:#7f7f7f;stroke-width:0.25">CW</text>
+@@ -289,41 +289,41 @@
+   <g
+      id="g1">
+     <path
+-       id="Dial2"
+-       class="Dial2 TouchDial"
++       id="Ring2"
++       class="Ring2 TouchRing"
+        d="m 186.86489,3.0531648 c -5.246,0 -9.975,3.16004 -11.983,8.0065602 -2.007,4.8466 -0.898,10.4252 2.812,14.1346 3.709,3.7094 9.288,4.819 14.134,2.8115 4.847,-2.0075 8.007,-6.7368 8.007,-11.9827 0,-7.1630902 -5.807,-12.9699602 -12.97,-12.9699602 z"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25" />
+     <path
+-       id="Dial2CCW"
+-       class="Dial2CCW Dial2 Button"
++       id="Ring2CCW"
++       class="Ring2CCW Ring2 Button"
+        d="m 183.89589,5.9290848 2.247,-1.10048 v 0.73366 c 1.343,-0.08427 2.672,0.30622 3.745,1.10046 -1.147,-0.60907 -2.497,-0.74124 -3.745,-0.36682 v 0.73364 z"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25" />
+     <path
+-       id="LeaderDial2CCW"
+-       class="Dial2CCW Dial2 Leader"
++       id="LeaderRing2CCW"
++       class="Ring2CCW Ring2 Leader"
+        d="M 182,6.0000001 H 171 V 24 h -3"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="cccc" />
+     <text
+-       id="LabelDial2CCW"
+-       class="Dial2CCW Dial2 Label"
++       id="LabelRing2CCW"
++       class="Ring2CCW Ring2 Label"
+        x="162.55469"
+        y="24.578125"
+        style="font-size:6px;font-family:monospace;text-anchor:end;fill:none;stroke:#7f7f7f;stroke-width:0.25">CCW</text>
+     <path
+-       id="Dial2CW"
+-       class="Dial2CW Button"
++       id="Ring2CW"
++       class="Ring2CW Button"
+        d="m 183.89389,26.471125 2.247,-1.1004 v 0.7336 c 1.298,0.1914 2.623,-0.0682 3.745,-0.7336 -0.973,0.9964 -2.338,1.5315 -3.745,1.4672 v 0.7337 z"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25" />
+     <path
+-       id="LeaderDial2CW"
+-       class="Dial2CW Dial2 Leader"
++       id="LeaderRing2CW"
++       class="Ring2CW Ring2 Leader"
+        d="m 182,26 h -9 v 8.000001 h -5"
+        style="font-size:6px;font-family:monospace;fill:none;stroke:#7f7f7f;stroke-width:0.25"
+        sodipodi:nodetypes="cccc" />
+     <text
+-       id="LabelDial2CW"
+-       class="Dial2CW Dial2 Label"
++       id="LabelRing2CW"
++       class="Ring2CW Ring2 Label"
+        x="158.94238"
+        y="34.578125"
+        style="font-size:6px;font-family:monospace;text-anchor:end;fill:none;stroke:#7f7f7f;stroke-width:0.25">CW</text>
 diff --git a/data/layouts/wacom-intuos-pro-3-s.svg b/data/layouts/wacom-intuos-pro-3-s.svg
 index 4de7c63bf199..bdd0273a271a 100644
 --- a/data/layouts/wacom-intuos-pro-3-s.svg
@@ -362,5 +385,5 @@ index f8e71397d023..ac5b52563672 100644
 +RingNumModes=3
 +Ring2NumModes=3
 -- 
-2.50.1
+2.51.0
 

@@ -1,6 +1,6 @@
 Name:           libwacom
 Version:        1.12.1
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Tablet Information Client Library
 Requires:       %{name}-data
 
@@ -26,7 +26,10 @@ Patch14:        0014-data-Add-3rd-gen-Intuos-Pro-devices.patch
 Patch15:        0015-data-remove-erroneous-dash-from-latest-Cintiq-Pro-mo.patch
 Patch16:        0016-layouts-rearrange-the-Intuos-Pro-3rd-L-M-buttons.patch
 Patch17:        0017-layouts-move-the-rings-of-the-Intuos-Pro-3rd-down-in.patch
-Patch18:        0018-RHEL-pretend-the-Intuos-Pro-3rd-Gen-has-Rings-not-Di.patch
+Patch18:        0018-data-Add-stylus-definition-for-Pro-Pen-3E.patch
+Patch19:        0019-data-Add-six-new-tablet-definitions.patch
+Patch20:        0020-layouts-update-the-Wacom-Intuos-Pro3-again-for-small.patch
+Patch21:        0021-RHEL-pretend-the-Intuos-Pro-3rd-Gen-has-Rings-not-Di.patch
 
 BuildRequires:  meson gcc
 BuildRequires:  glib2-devel libgudev1-devel
@@ -107,6 +110,11 @@ rm ${RPM_BUILD_ROOT}/%{_bindir}/libwacom-show-stylus
 %{_datadir}/libwacom/layouts/*.svg
 
 %changelog
+* Wed Nov 05 2025 Peter Hutterer <peter.hutterer@redhat.com> - 1.12.1-6
+- Add stylus definitions for the propen group (RHEL-122207)
+- Add tablet definitions for the latest Cintiqs (RHEL-122206)
+- Fix the overlap for button assignments in the SVG (RHEL-126355)
+
 * Thu Aug 21 2025 Peter Hutterer <peter.hutterer@redhat.com> - 1.12.1-5
 - Rearrange the OSD buttons for the Intuos Pro 3rd Gen (RHEL-101881)
 - Use separate Ring/Ring2 assignments 

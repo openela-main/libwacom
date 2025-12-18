@@ -1,6 +1,6 @@
 Name:           libwacom
 Version:        2.14.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Tablet Information Client Library
 Requires:       %{name}-data
 
@@ -13,7 +13,8 @@ Patch01:        0001-data-Add-3rd-gen-Intuos-Pro-devices.patch
 Patch02:        0002-data-Add-six-new-tablet-definitions.patch
 Patch03:        0003-layouts-rearrange-the-Intuos-Pro-3rd-L-M-buttons.patch
 Patch04:        0004-layouts-move-the-rings-of-the-Intuos-Pro-3rd-down-in.patch
-Patch05:        0005-RHEL-pretend-the-Intuos-Pro-3rd-Gen-has-Rings-not-Di.patch
+Patch05:        0005-layouts-update-the-Wacom-Intuos-Pro3-again-for-small.patch
+Patch06:        0006-RHEL-pretend-the-Intuos-Pro-3rd-Gen-has-Rings-not-Di.patch
 
 BuildRequires:  meson gcc
 BuildRequires:  glib2-devel libgudev1-devel libevdev-devel
@@ -100,6 +101,9 @@ install -d ${RPM_BUILD_ROOT}/%{_udevrulesdir}
 %{_mandir}/man1/libwacom-show-stylus.1*
 
 %changelog
+* Wed Nov 05 2025 Peter Hutterer <peter.hutterer@redhat.com> - 2.14.0-4
+- Rearrange the dial leaders for the  Intuos Pro 3rd Gen (RHEL-122812)
+
 * Wed Aug 20 2025 Peter Hutterer <peter.hutterer@redhat.com> - 2.14.0-3
 - Rearrange the button leaders for the Intuos Pro 3rd Gen (RHEL-101873)
 
